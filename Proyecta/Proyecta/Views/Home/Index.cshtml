@@ -2,22 +2,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section header{
+    <section class='leaderboard leaderboard-style-one'>
+        <div class='container'>
+            <h1 class='animated fadeInDown'>Proyecta</h1>
+            <h2 class='animated fadeInDown'><i>"Enlazando ideas y creando soluciones"</i></h2>
+            <div class='relative-w'>
+                <div class='loupe loupe-left animated rollIn'>
+                    <img alt='' src='http://placehold.it/700x500'>
+                </div>
+                <div class='loupe loupe-right animated fadeInRightBig'>
+                    
+                    <img src="~/assets/images/costa_rica.png" />
+                </div>
+                <div class='frame-browser animated bounceInUp'>
+                    <div class='frame-buttons'>
+                    <div class='frame-button-close'></div>
+                    <div class='frame-button-max'></div>
+                    <div class='frame-button-min'></div>
+                    </div>
+                    <div class='frame-browser-image'>
+                    <img alt=''src='http://placehold.it/700x500'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
 @section content{
 <div class='separator-shadow-top sub-screenshot-shadow'>
-    <img alt='' src='assets/images/shadow-separator-wide-top.png'>
+    <img alt='' src='~/assets/images/shadow-separator-wide-top.png'>
 </div>
 <div class='iconed-features lift-on-hover style-1'>
     <div class='row'>
     <div class='col-md-4'>
         <div class='iconed-feature' href='#'>
-        <div class='feature-icon-w'>
-            <i class='icon-eye-open'></i>
-        </div>
-        <h4>Responsive Layout</h4>
-        <p>Works perfectly on everything from desktops to mobile devices.</p>
-        <div class='btn-show-on-parent-hover'>
-            <a class='read-more-link' href='#'>Read More</a>
-        </div>
+            <div class='feature-icon-w'>
+                <i class='icon-eye-open'></i>
+            </div>
+            <h4>Busca proyectos</h4>
+            <p>Works perfectly on everything from desktops to mobile devices.</p>
+            <div class='btn-show-on-parent-hover'>
+                <a class='read-more-link' href='#'>Read More</a>
+            </div>
         </div>
     </div>
     <div class='col-md-4'>
@@ -25,7 +53,7 @@
         <div class='feature-icon-w'>
             <i class='icon-cog'></i>
         </div>
-        <h4>Unlimited Colors</h4>
+        <h4>Crea tu proyecto</h4>
         <p>Theme comes with multiple predefined colors.</p>
         <div class='btn-show-on-parent-hover'>
             <a class='read-more-link' href='#'>Read More</a>

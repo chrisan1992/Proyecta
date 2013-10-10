@@ -127,6 +127,7 @@
     <Content Include="assets\images\backgrounds\hero-home.jpg" />
     <Content Include="assets\images\backgrounds\page-header-bg-1.jpg" />
     <Content Include="assets\images\bg-blue.jpg" />
+    <Content Include="assets\images\costa_rica.png" />
     <Content Include="assets\images\logo-small-top.png" />
     <Content Include="assets\images\shadow-separator-bottom.png" />
     <Content Include="assets\images\shadow-separator-narrow-bottom.png" />
@@ -178,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AcercaDe.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,9 +9,16 @@ namespace Proyecta.Controllers
     public class HomeController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Home/Index
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: /Home/AcercaDe
+
+        public ActionResult AcercaDe()
         {
             return View();
         }
