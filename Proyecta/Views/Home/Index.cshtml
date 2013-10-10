@@ -1,45 +1,298 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
+
+@section content{
+<div class='separator-shadow-top sub-screenshot-shadow'>
+    <img alt='' src='assets/images/shadow-separator-wide-top.png'>
+</div>
+<div class='iconed-features lift-on-hover style-1'>
+    <div class='row'>
+    <div class='col-md-4'>
+        <div class='iconed-feature' href='#'>
+        <div class='feature-icon-w'>
+            <i class='icon-eye-open'></i>
         </div>
-    </section>
+        <h4>Responsive Layout</h4>
+        <p>Works perfectly on everything from desktops to mobile devices.</p>
+        <div class='btn-show-on-parent-hover'>
+            <a class='read-more-link' href='#'>Read More</a>
+        </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class='iconed-feature' href='#'>
+        <div class='feature-icon-w'>
+            <i class='icon-cog'></i>
+        </div>
+        <h4>Unlimited Colors</h4>
+        <p>Theme comes with multiple predefined colors.</p>
+        <div class='btn-show-on-parent-hover'>
+            <a class='read-more-link' href='#'>Read More</a>
+        </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class='iconed-feature' href='#'>
+        <div class='feature-icon-w'>
+            <i class='icon-leaf'></i>
+        </div>
+        <h4>Modern Look</h4>
+        <p>Clean and simple design is what people want nowadays.</p>
+        <div class='btn-show-on-parent-hover'>
+            <a class='read-more-link' href='#'>Read More</a>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class='separator-shadow-bottom bottom-margin'>
+    <img alt='' src='assets/images/shadow-separator-wide-bottom.png'>
+</div>
+<div class='row bottom-margin'>
+    <div class='col-md-5'>
+    <h2 class='header-lined'>Wrappers for images</h2>
+    <ul class='list-checkmarked text-bigger'>
+        <li>This theme comes with a set of amazin wrappers for your images. If you are a web designer and want to showcase your websites - there is nothing better on a market than theme Earth.</li>
+        <li>Simply wrap the image with couple lines of html and you will have a gorgeous looking browser frame and a magnifiyng glass for showcasing your projects details.</li>
+    </ul>
+    <!-- %a.btn.btn-default{:href => "#"} Show me Example -->
+    </div>
+    <div class='col-md-1'></div>
+    <div class='col-md-6'>
+    <div class='relative-w'>
+        <div class='loupe loupe-left loupe-large animated-when-visible' data-animation-type='fadeInLeft'>
+        <img alt='' src='http://placehold.it/800x600'>
+        </div>
+        <div class='frame-browser animated-when-visible' data-animation-type='bounceInRight'>
+        <div class='frame-buttons'>
+            <div class='frame-button-close'></div>
+            <div class='frame-button-max'></div>
+            <div class='frame-button-min'></div>
+        </div>
+        <div class='frame-browser-image'>
+            <img alt='' src='http://placehold.it/800x600'>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class='separator-shadow-top bottom-margin'>
+    <img alt='' src='assets/images/shadow-separator-wide-top.png'>
+</div>
+<div class='slogan text-center'>
+    <h2 class='header-highlighted'>Great for Blog, Portfolio, Company Website and more</h2>
+    <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+    <div class='slogan-buttons'>
+    <a class='btn btn-primary btn-cta btn-lg animated swing' href='#'>
+        Purchase Theme Now
+    </a>
+    </div>
+</div>
+<div class='separator-shadow-bottom bottom-margin'>
+    <img alt='' src='assets/images/shadow-separator-wide-bottom.png'>
+</div>
+<div class='pull-right carousel-top-controls'>
+    <a data-slide='prev' href='#carousel-works'>
+    <span class='icon-angle-left'></span>
+    </a>
+    <a data-slide='next' href='#carousel-works'>
+    <span class='icon-angle-right'></span>
+    </a>
+</div>
+<h2 class='header-lined'>Recent Works Slider</h2>
+<div class='carousel slide carousel-with-animated-content' id='carousel-works'>
+    <!-- Wrapper for slides -->
+    <div class='carousel-inner'>
+    <div class='item active'>
+        <div class='row'>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible delay-animation-one' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible delay-animation-two' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class='item'>
+        <div class='row'>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible delay-animation-one' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='portfolio-item portfolio-style-3 animated-when-visible delay-animation-two' data-animation-type='flipInY'>
+            <div class='frame-browser'>
+                <figure>
+                <img alt='' src='http://placehold.it/800x600'>
+                <figcaption>
+                    <h5 class='fp-title'>
+                    <a href='#'>Color Picker</a>
+                    </h5>
+                    <div class='fp-content'>Web Development</div>
+                    <div class='fp-buttons'>
+                    <a class='btn btn-default btn-sm fp-details-btn' href='portfolio-single.html'>
+                        <i class='icon-file-text-alt'></i>
+                        View Details
+                    </a>
+                    <a class='btn btn-default btn-sm fp-lightbox-btn prettyphoto' data-rel='prettyPhoto' href='http://placehold.it/700x500'>
+                        <i class='icon-zoom-in'></i>
+                        View Bigger
+                    </a>
+                    </div>
+                </figcaption>
+                </figure>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class='block-lined-over'>
+    <a class='continue-reading-link pull-right' href='portfolio.html'>
+    <i class='icon-th'></i>
+    View All
+    </a>
+</div>
+<h2 class='header-lined has-sub-header text-center'>Our Clients</h2>
+<h4 class='sub-lined-header less-margin text-center'>Our clients love us! You are welcome to become one of them.</h4>
+<div class='clients'>
+    <div class='row bottom-margin'>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible' data-animation-type='rotateInUpLeft' src='http://placehold.it/800x400'>
+    </div>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible delay-animation-one' data-animation-type='rotateInUpLeft' src='http://placehold.it/800x400'>
+    </div>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible delay-animation-two' data-animation-type='rotateInUpLeft' src='http://placehold.it/800x400'>
+    </div>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible delay-animation-two' data-animation-type='rotateInUpRight' src='http://placehold.it/800x400'>
+    </div>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible delay-animation-one' data-animation-type='rotateInUpRight' src='http://placehold.it/800x400'>
+    </div>
+    <div class='col-md-2'>
+        <img alt='' class='animated-when-visible' data-animation-type='rotateInUpRight' src='http://placehold.it/800x400'>
+    </div>
+    </div>
+</div>
+
 }
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
-
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
-
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>
