@@ -6132,7 +6132,7 @@ td.loupe.loupe-large {
   margin: 0px 20px 0px 20px;
 }
 .iconed-features .iconed-feature .feature-icon-w {
-  color: #70a4d2;
+  color: #12608A;
   font-size: 70px;
   line-height: 90px;
   margin-bottom: 20px;
@@ -6377,8 +6377,8 @@ td.loupe.loupe-large {
 }
 .team-member h4 {
   font-size: 14px;
-  color: #5783A5;
-  background-color: #E3EEF7;
+  color: #F7FBFF;
+  background-color: #6EC1E7;
   padding: 5px;
   border-radius: 8px;
   display: inline-block;
@@ -6392,7 +6392,7 @@ td.loupe.loupe-large {
   margin: 0px 5px;
   color: #fff;
   display: inline-block;
-  background-color: #74A6C9;
+  background-color: #79C358;
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -6663,7 +6663,7 @@ footer#main-footer .footer-menu li a {
   }
 }
 .widget-cats {
-  text-align: center;
+  text-align: left;
 }
 .widget-cats ul {
   list-style: none;
