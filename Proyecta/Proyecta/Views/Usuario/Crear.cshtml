@@ -1,0 +1,51 @@
+﻿@model Proyecta.Models.Usuario
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <div class='container'>
+        <h3 style="margin-top: 5px; margin-bottom: 5px;">Crear nuevo usuario</h3>
+    </div>
+}
+
+@section content{
+    @Html.BeginForm(){
+<div class='form-group' style="margin-top: 20px;">
+    <div class='row'>
+        <div class='col-md-6'>
+            @Html.LabelFor(u => u.Cedula, null, new { @class = "control-label" })
+            @Html.TextBoxFor(u => u.Cedula, new { @class = "form-control", @placeholder = "Ej: 114650237" })
+        </div>
+        <div class='col-md-6'>
+            @Html.LabelFor(u => u.Correo, null, new { @class = "control-label" })
+            @Html.TextBoxFor(u => u.Correo, new { @class = "form-control", @placeholder = "Ej: correo@servidor.com" })
+        </div>
+    </div>
+</div>
+<div class='form-group'>
+    <div class='row'>
+        <div class='col-md-6'>
+            @Html.LabelFor(u => u.Password, null, new { @class = "control-label" })
+            @Html.TextBoxFor(u => u.Password, new { @class = "form-control" })
+        </div>
+        <div class='col-md-6'>
+            @Html.Label("Repetir contraseña", new { @class = "control-label" })
+            @Html.TextBox("repeated_password", null, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<div class='form-group'>
+    <div class='row'>
+        <div class='col-md-6'>
+
+        </div>
+        <div class='col-md-6'>
+            <input type="submit" id="submit" value="Crear" class="btn btn-primary" name="submit" />
+        </div>
+    </div>
+</div>
+    }
+}

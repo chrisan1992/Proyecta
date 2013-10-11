@@ -111,8 +111,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class='collapse navbar-collapse navbar-ex1-collapse'>
                         <a class='btn btn-default navbar-btn navbar-right' data-toggle='modal' href='#loginModal'>
-                        Sign In
-                        <i class='icon-signin'></i>
+                            Iniciar Sesión
+                            <i class='icon-signin'></i>
+                        </a>
+                        <a class='btn btn-default navbar-btn navbar-right' href='Usuario/Crear/'>
+                            Crear Cuenta
+                            <i class='icon-plus-sign'></i>
                         </a>
                         <ul class='nav navbar-nav navbar-right'>
                         <li class='current active'>
@@ -141,7 +145,7 @@
             <div class='separator-shadow-bottom'>
                 <img alt='' src='~/assets/images/shadow-separator-wide-bottom.png'>
             </div>
-            @RenderSection("header", false);
+            @RenderSection("header", false)
             <!-- SEPARATOR -->
             <div class='separator-shadow-top'>
                 <img alt='' src='~/assets/images/shadow-separator-wide-top.png'>

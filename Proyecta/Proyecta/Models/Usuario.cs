@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DataAnnotationsExtensions;
 using System.Linq;
 using System.Web;
 
@@ -20,6 +21,7 @@ namespace Proyecta.Models
 
         [Display(Name = "Correo electrónico")]
         [Required(ErrorMessage = "required")]
+        [Email(ErrorMessage="Correo inválido")]
         [StringLength(40, ErrorMessage = "Correo demasiado largo")]
         public string Correo { get; set; }
     }
@@ -27,6 +29,37 @@ namespace Proyecta.Models
     [MetadataType(typeof(IUsuario))]
     public partial class Usuario
     {
+        public List<Usuario> GetAllUsuarios()
+        {
+            try
+            {
+                ModeloDataContext ct = new ModeloDataContext();
+                List<Usuario> lista = (from a in ct.Usuarios select a).ToList();
+                ct.Dispose();
 
+                return lista;
+            }
+            catch (Exception e)
+            {
+                return new List<Usuario>();
+            }
+        }
+
+        public bool CreateUsario(Usuario us)
+        {
+            try
+            {
+                ModeloDataContext ct = new ModeloDataContext();
+                us.id = new Guid();
+                ct.Usuarios.InsertOnSubmit(us);
+                ct.SubmitChanges();
+                ct.Dispose();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
