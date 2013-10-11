@@ -10,17 +10,18 @@ namespace Proyecta.Models
     public class IUsuario
     {
         [Display(Name = "Cédula")]
-        [Required(ErrorMessage = "required")]
+        [Required(ErrorMessage = "obligatorio")]
         [StringLength(20, ErrorMessage = "Contraseña de no más de 20 caracteres")]
         public string Cedula { get; set; }
 
         [Display(Name = "Contraseña")]
-        [Required(ErrorMessage = "required")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "obligatorio")]
         [StringLength(15, ErrorMessage = "La cédula tiene que ser menor que 15 caracteres")]
         public string Password { get; set; }
 
         [Display(Name = "Correo electrónico")]
-        [Required(ErrorMessage = "required")]
+        [Required(ErrorMessage = "obligatorio")]
         [Email(ErrorMessage="Correo inválido")]
         [StringLength(40, ErrorMessage = "Correo demasiado largo")]
         public string Correo { get; set; }
@@ -29,6 +30,12 @@ namespace Proyecta.Models
     [MetadataType(typeof(IUsuario))]
     public partial class Usuario
     {
+
+        [Display(Name = "Confirmar contraseña")]
+        [Compare("Password", ErrorMessage = "Las dos contraseñas tienen que ser iguales")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
+
         public List<Usuario> GetAllUsuarios()
         {
             try
@@ -51,6 +58,7 @@ namespace Proyecta.Models
             {
                 ModeloDataContext ct = new ModeloDataContext();
                 us.id = new Guid();
+                us.Persona.id = new Guid();
                 ct.Usuarios.InsertOnSubmit(us);
                 ct.SubmitChanges();
                 ct.Dispose();

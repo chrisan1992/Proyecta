@@ -12,40 +12,63 @@
 }
 
 @section content{
-    @Html.BeginForm(){
-<div class='form-group' style="margin-top: 20px;">
-    <div class='row'>
-        <div class='col-md-6'>
-            @Html.LabelFor(u => u.Cedula, null, new { @class = "control-label" })
-            @Html.TextBoxFor(u => u.Cedula, new { @class = "form-control", @placeholder = "Ej: 114650237" })
-        </div>
-        <div class='col-md-6'>
-            @Html.LabelFor(u => u.Correo, null, new { @class = "control-label" })
-            @Html.TextBoxFor(u => u.Correo, new { @class = "form-control", @placeholder = "Ej: correo@servidor.com" })
-        </div>
-    </div>
-</div>
-<div class='form-group'>
-    <div class='row'>
-        <div class='col-md-6'>
-            @Html.LabelFor(u => u.Password, null, new { @class = "control-label" })
-            @Html.TextBoxFor(u => u.Password, new { @class = "form-control" })
-        </div>
-        <div class='col-md-6'>
-            @Html.Label("Repetir contraseña", new { @class = "control-label" })
-            @Html.TextBox("repeated_password", null, new { @class = "form-control" })
-        </div>
-    </div>
-</div>
-<div class='form-group'>
-    <div class='row'>
-        <div class='col-md-6'>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
+        <div class='form-group' style="margin-top: 20px;">
+            <div class='row'>
+                <div class='col-md-6'>
+                    @ViewBag.Result
+                    @Html.LabelFor(u => u.Persona.Nombre, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.Persona.Nombre, new { @class = "form-control", @placeholder = "Ej: Juan" })
+                    @Html.ValidationMessageFor(u => u.Persona.Nombre, null, new { @style="color: red;" })
+                </div>
+                <div class='col-md-6'>
+                    @Html.LabelFor(u => u.Persona.Apellido1, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.Persona.Apellido1, new { @class = "form-control", @placeholder = "Ej: Pérez" })
+                    @Html.ValidationMessageFor(u => u.Persona.Apellido1, null, new { @style="color: red;" })
+                </div>
+            </div>
         </div>
-        <div class='col-md-6'>
-            <input type="submit" id="submit" value="Crear" class="btn btn-primary" name="submit" />
+        <div class='form-group' style="margin-top: 20px;">
+            <div class='row'>
+                <div class='col-md-6'>
+                    @ViewBag.Result
+                    @Html.LabelFor(u => u.Cedula, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.Cedula, new { @class = "form-control", @placeholder = "Ej: 114650237" })
+                    @Html.ValidationMessageFor(u => u.Cedula, null, new { @style="color: red;" })
+                </div>
+                <div class='col-md-6'>
+                    @Html.LabelFor(u => u.Correo, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.Correo, new { @class = "form-control", @placeholder = "Ej: correo@servidor.com" })
+                    @Html.ValidationMessageFor(u => u.Correo, null, new { @style="color: red;" })
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        <div class='form-group'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    @Html.LabelFor(u => u.Password, null, new { @class = "control-label" })
+                    @Html.PasswordFor(u => u.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.Password, null, new { @style="color: red;" })
+                </div>
+                <div class='col-md-6'>
+                    @Html.LabelFor(u => u.ConfirmPassword, null, new { @class = "control-label" })
+                    @Html.PasswordFor(u => u.ConfirmPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.ConfirmPassword, null, new { @style="color: red;" })
+                </div>
+            </div>
+        </div>
+        <div class='form-group'>
+            <div class='row'>
+                <div class='col-md-6'>
+
+                </div>
+                <div class='col-md-6'>
+                    <input type="submit" id="submit" value="Crear" class="btn btn-primary" name="submit" />
+                </div>
+            </div>
+        </div>
     }
 }
