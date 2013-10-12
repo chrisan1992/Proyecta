@@ -13,7 +13,9 @@ namespace Proyecta.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            Models.Proyecto p = new Models.Proyecto();
+
+            return View(p.Get3FeaturedProyectos());
         }
 
         // GET: /Home/AcercaDe

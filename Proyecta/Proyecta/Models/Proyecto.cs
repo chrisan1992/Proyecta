@@ -37,8 +37,20 @@ namespace Proyecta.Models
     {
         public List<Proyecto> Get3FeaturedProyectos()
         {
-            // Christopher
-            return new List<Proyecto>();
+            ModeloDataContext ct = new ModeloDataContext();
+            List<Proyecto> lista = (from a in ct.Proyectos select a).ToList();
+            ct.Dispose();
+            return lista;
+        }
+
+        public Proyecto GetProyecto(Guid idProyecto) {
+            ModeloDataContext ct = new ModeloDataContext();
+            Proyecto consulta = (from a in ct.Proyectos where a.Id == idProyecto select a).FirstOrDefault();
+            return consulta;
         }
     }
+
+
+
+
 }

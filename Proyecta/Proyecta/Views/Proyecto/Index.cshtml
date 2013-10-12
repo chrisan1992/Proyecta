@@ -1,8 +1,13 @@
-﻿@{
+﻿@model Proyecta.Models.Proyecto
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section content{
-    <h2>Proyectos</h2>
+    <h2>Proyecto: @Html.DisplayFor(model => model.Nombre)</h2>
+    <h2>Descripcion:</h2>
+    <h2>Recursos:</h2>
+
 }

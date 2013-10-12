@@ -1,4 +1,7 @@
-﻿@{
+﻿@model IEnumerable<Proyecta.Models.Proyecto>
+
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -31,160 +34,134 @@
     </section>
         -->
     <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <h3>Proyectos Destacados</h3>
+        </div>
         <div class="col-md-3">
             <div class="post-side-bar">
                 <div class="widget widget-cats">
-                  <h4 class="widget-title">
-                    Proyectos
-                  </h4>
-                  <ul>
-                    <li>
-                      <a href="#"><i class="icon-user"></i> Participación y organización comunitaria</a>
-                    </li>
-                      <li>
-                      <a href="#"><i class="icon-user"></i> Bienestar del adulto mayor</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="icon-user"></i> Comunidades indígenas</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="icon-heart"></i> Salud mental y emocional</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="icon-heart"></i> Salud ambiental</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="icon-heart"></i> Salud sexual y reproductiva</a>
-                    </li>
-                    
-                      <li>
-                      <a href="#"><i class="icon-heart"></i> Salud materna</a>
-                    </li>
-                  </ul>
+                    <h4 class="widget-title">Proyectos
+                    </h4>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="icon-user"></i>Participación y organización comunitaria</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-user"></i>Bienestar del adulto mayor</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-user"></i>Comunidades indígenas</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-heart"></i>Salud mental y emocional</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-heart"></i>Salud ambiental</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icon-heart"></i>Salud sexual y reproductiva</a>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="icon-heart"></i>Salud materna</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
+            </div>
         </div>
         <div class="col-md-9">
             <div class="row">
-              <div class="col-md-4">
-                <div class="team-member animated-when-visible delay-animation-one animated bounceInUp" data-animation-type="bounceInUp">
-                  <div class="member-avatar">
-                    <img alt="" src="http://placehold.it/500x500">
-                  </div>
-                  <h3>David Villa</h3>
-                  <h4>Perfect Finisher</h4>
-                  <p>Messi started the season by lifting the Spanish Supercup with Barcelona, scoring three goals and providing two assists.</p>
-                  <div class="member-social">
-                    <a href="#">
-                      <i class="icon-facebook"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-twitter"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-linkedin"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-envelope"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="team-member animated-when-visible delay-animation-two animated bounceInUp" data-animation-type="bounceInUp">
-                  <div class="member-avatar">
-                    <img alt="" src="http://placehold.it/500x500">
-                  </div>
-                  <h3>Andres Iniesta</h3>
-                  <h4>Magician</h4>
-                  <p>Messi started the season by lifting the Spanish Supercup with Barcelona, scoring three goals and providing two assists.</p>
-                  <div class="member-social">
-                    <a href="#">
-                      <i class="icon-facebook"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-twitter"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-linkedin"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-envelope"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="team-member animated-when-visible delay-animation-three animated bounceInUp" data-animation-type="bounceInUp">
-                  <div class="member-avatar">
-                    <img alt="" src="http://placehold.it/500x500">
-                  </div>
-                  <h3>Xavi Hernandez</h3>
-                  <h4>Another Magician</h4>
-                  <p>Messi started the season by lifting the Spanish Supercup with Barcelona, scoring three goals and providing two assists.</p>
-                  <div class="member-social">
-                    <a href="#">
-                      <i class="icon-facebook"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-twitter"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-linkedin"></i>
-                    </a>
-                    <a href="#">
-                      <i class="icon-envelope"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                @foreach(var item in Model){
+                    <div class="col-md-4">
+                        <div class="team-member animated-when-visible delay-animation-one animated bounceInUp" data-animation-type="bounceInUp">
+                            <div class="member-avatar">
+                                <a href="Proyecto/Index?id=@item.Id"><!--imagen redirecciona-->
+                                    <img alt="" src="http://dr.robert.cr/wp-content/uploads/2009/05/tortuga.jpeg" width="500px" height="211px">
+                                </a>
+                            </div>
+                            <h3>@item.Nombre</h3>
+                            <h4>Categoria</h4>
+                            <p>@item.Propuesta...</p>
+                            
+                            <div class="member-social">
+                                <a href="#">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="icon-linkedin"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="icon-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div style="border-top:1px solid #ddd;margin-top:20px;">
+                <h3>Empresas Destacadas!</h3>
+            </div>
+            <div class="row">
+                @{
+                    
+                    }
+                @foreach(var item in Model){
+                
+                }
+            </div>
+        </div>
     </div>
-</div>
 }
 
 @section content{
-<div class='separator-shadow-top sub-screenshot-shadow'>
-    <img alt='' src='~/assets/images/shadow-separator-wide-top.png'>
-</div>
-<div class='iconed-features lift-on-hover style-1'>
-    <div class='row'>
-    <div class='col-md-4'>
-        <div class='iconed-feature' href='#'>
-            <div class='feature-icon-w'>
-                <i class='icon-eye-open'></i>
+    <div class='separator-shadow-top sub-screenshot-shadow'>
+        <img alt='' src='~/assets/images/shadow-separator-wide-top.png'>
+    </div>
+    <div class='iconed-features lift-on-hover style-1'>
+        <div class='row'>
+            <div class='col-md-4'>
+                <div class='iconed-feature' href='#'>
+                    <div class='feature-icon-w'>
+                        <i class='icon-eye-open'></i>
+                    </div>
+                    <h4>Busca proyectos</h4>
+                    <p>Works perfectly on everything from desktops to mobile devices.</p>
+                    <div class='btn-show-on-parent-hover'>
+                        <a class='read-more-link' href='#'>Read More</a>
+                    </div>
+                </div>
             </div>
-            <h4>Busca proyectos</h4>
-            <p>Works perfectly on everything from desktops to mobile devices.</p>
-            <div class='btn-show-on-parent-hover'>
-                <a class='read-more-link' href='#'>Read More</a>
+            <div class='col-md-4'>
+                <div class='iconed-feature' href='#'>
+                    <div class='feature-icon-w'>
+                        <i class='icon-cog'></i>
+                    </div>
+                    <h4>Crea tu proyecto</h4>
+                    <p>Theme comes with multiple predefined colors.</p>
+                    <div class='btn-show-on-parent-hover'>
+                        <a class='read-more-link' href='#'>Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-4'>
+                <div class='iconed-feature' href='#'>
+                    <div class='feature-icon-w'>
+                        <i class='icon-info'></i>
+                    </div>
+                    <h4>Guía para crear proyectos</h4>
+                    <p>Clean and simple design is what people want nowadays.</p>
+                    <div class='btn-show-on-parent-hover'>
+                        <a class='read-more-link' href='#'>Read More</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class='col-md-4'>
-        <div class='iconed-feature' href='#'>
-        <div class='feature-icon-w'>
-            <i class='icon-cog'></i>
-        </div>
-        <h4>Crea tu proyecto</h4>
-        <p>Theme comes with multiple predefined colors.</p>
-        <div class='btn-show-on-parent-hover'>
-            <a class='read-more-link' href='#'>Read More</a>
-        </div>
-        </div>
-    </div>
-    <div class='col-md-4'>
-        <div class='iconed-feature' href='#'>
-        <div class='feature-icon-w'>
-            <i class='icon-info'></i>
-        </div>
-        <h4>Guía para crear proyectos</h4>
-        <p>Clean and simple design is what people want nowadays.</p>
-        <div class='btn-show-on-parent-hover'>
-            <a class='read-more-link' href='#'>Read More</a>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
 }
