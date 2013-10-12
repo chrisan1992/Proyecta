@@ -1,35 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Proyecta" Class="ModeloDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=tcp:wingaaqz5c.database.windows.net,1433;Initial Catalog=Proyecta;Integrated Security=False;User ID=chrisan1992@wingaaqz5c;Connect Timeout=30;Encrypt=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProyectaConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Institucion" Member="Institucions">
-    <Type Name="Institucion">
-      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Nombre_Institucion" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Cedula_Representante" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Association Name="Persona_Institucion" Member="Persona" ThisKey="id" OtherKey="id" Type="Persona" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Proyecto_Personas" Member="Proyecto_Personas">
     <Type Name="Proyecto_Persona">
       <Column Name="idPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="idProyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Persona_Proyecto_Persona" Member="Persona" ThisKey="idPersona" OtherKey="id" Type="Persona" IsForeignKey="true" />
       <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto" ThisKey="idProyecto" OtherKey="id" Type="Proyecto" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos">
-    <Type Name="Retroaliimentacion_Proyecto">
-      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="url_Archivo" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="Comentario" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Usuarios" Member="Usuarios">
-    <Type Name="Usuario">
-      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Cedula" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Correo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Association Name="Persona_Usuario" Member="Persona" ThisKey="id" OtherKey="id" Type="Persona" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Persona" Member="Personas">
@@ -40,9 +16,28 @@
       <Column Name="Apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Apellido2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Genero" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="Persona_Institucion" Member="Institucion" ThisKey="id" OtherKey="id" Type="Institucion" Cardinality="One" />
+      <Column Name="urlFoto" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
       <Association Name="Persona_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="id" OtherKey="idPersona" Type="Proyecto_Persona" />
+      <Association Name="Persona_Institucion" Member="Institucion" ThisKey="id" OtherKey="id" Type="Institucion" Cardinality="One" />
       <Association Name="Persona_Usuario" Member="Usuario" ThisKey="id" OtherKey="id" Type="Usuario" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Institucion" Member="Institucions">
+    <Type Name="Institucion">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre_Institucion" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Cedula_Representante" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="urlLogo" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Institucion" Member="Persona" ThisKey="id" OtherKey="id" Type="Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cedula" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Usuario" Member="Persona" ThisKey="id" OtherKey="id" Type="Persona" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Proyecto" Member="Proyectos">
@@ -55,8 +50,20 @@
       <Column Name="Canton" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="PromedioEvaluacion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="CantidadEvaluacionesUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFinalizacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="id" OtherKey="idProyecto" Type="Proyecto_Persona" />
+      <Association Name="Proyecto_Retroalimentacion_Proyecto" Member="Retroalimentacion_Proyecto" ThisKey="id" OtherKey="id" Type="Retroalimentacion_Proyecto" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Retroalimentacion_Proyecto" Member="Retroalimentacion_Proyectos">
+    <Type Name="Retroalimentacion_Proyecto">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="url_Archivo" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="Proyecto_Retroalimentacion_Proyecto" Member="Proyecto" ThisKey="id" OtherKey="id" Type="Proyecto" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

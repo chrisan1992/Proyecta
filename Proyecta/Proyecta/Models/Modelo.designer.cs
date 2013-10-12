@@ -30,24 +30,24 @@ namespace Proyecta.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertInstitucion(Institucion instance);
-    partial void UpdateInstitucion(Institucion instance);
-    partial void DeleteInstitucion(Institucion instance);
     partial void InsertProyecto_Persona(Proyecto_Persona instance);
     partial void UpdateProyecto_Persona(Proyecto_Persona instance);
     partial void DeleteProyecto_Persona(Proyecto_Persona instance);
-    partial void InsertRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
-    partial void UpdateRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
-    partial void DeleteRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
     partial void InsertPersona(Persona instance);
     partial void UpdatePersona(Persona instance);
     partial void DeletePersona(Persona instance);
+    partial void InsertInstitucion(Institucion instance);
+    partial void UpdateInstitucion(Institucion instance);
+    partial void DeleteInstitucion(Institucion instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     partial void InsertProyecto(Proyecto instance);
     partial void UpdateProyecto(Proyecto instance);
     partial void DeleteProyecto(Proyecto instance);
+    partial void InsertRetroalimentacion_Proyecto(Retroalimentacion_Proyecto instance);
+    partial void UpdateRetroalimentacion_Proyecto(Retroalimentacion_Proyecto instance);
+    partial void DeleteRetroalimentacion_Proyecto(Retroalimentacion_Proyecto instance);
     #endregion
 		
 		public ModeloDataContext() : 
@@ -80,35 +80,11 @@ namespace Proyecta.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Institucion> Institucions
-		{
-			get
-			{
-				return this.GetTable<Institucion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Proyecto_Persona> Proyecto_Personas
 		{
 			get
 			{
 				return this.GetTable<Proyecto_Persona>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Retroaliimentacion_Proyecto> Retroaliimentacion_Proyectos
-		{
-			get
-			{
-				return this.GetTable<Retroaliimentacion_Proyecto>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Usuario> Usuarios
-		{
-			get
-			{
-				return this.GetTable<Usuario>();
 			}
 		}
 		
@@ -120,6 +96,22 @@ namespace Proyecta.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<Institucion> Institucions
+		{
+			get
+			{
+				return this.GetTable<Institucion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuarios
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Proyecto> Proyectos
 		{
 			get
@@ -127,155 +119,12 @@ namespace Proyecta.Models
 				return this.GetTable<Proyecto>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Institucion")]
-	public partial class Institucion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _id;
-		
-		private string _Nombre_Institucion;
-		
-		private string _Cedula_Representante;
-		
-		private EntityRef<Persona> _Persona;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(System.Guid value);
-    partial void OnidChanged();
-    partial void OnNombre_InstitucionChanging(string value);
-    partial void OnNombre_InstitucionChanged();
-    partial void OnCedula_RepresentanteChanging(string value);
-    partial void OnCedula_RepresentanteChanged();
-    #endregion
-		
-		public Institucion()
-		{
-			this._Persona = default(EntityRef<Persona>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid id
+		public System.Data.Linq.Table<Retroalimentacion_Proyecto> Retroalimentacion_Proyectos
 		{
 			get
 			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					if (this._Persona.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Institucion", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Nombre_Institucion
-		{
-			get
-			{
-				return this._Nombre_Institucion;
-			}
-			set
-			{
-				if ((this._Nombre_Institucion != value))
-				{
-					this.OnNombre_InstitucionChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre_Institucion = value;
-					this.SendPropertyChanged("Nombre_Institucion");
-					this.OnNombre_InstitucionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula_Representante", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Cedula_Representante
-		{
-			get
-			{
-				return this._Cedula_Representante;
-			}
-			set
-			{
-				if ((this._Cedula_Representante != value))
-				{
-					this.OnCedula_RepresentanteChanging(value);
-					this.SendPropertyChanging();
-					this._Cedula_Representante = value;
-					this.SendPropertyChanged("Cedula_Representante");
-					this.OnCedula_RepresentanteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Institucion", Storage="_Persona", ThisKey="id", OtherKey="id", IsForeignKey=true)]
-		public Persona Persona
-		{
-			get
-			{
-				return this._Persona.Entity;
-			}
-			set
-			{
-				Persona previousValue = this._Persona.Entity;
-				if (((previousValue != value) 
-							|| (this._Persona.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Persona.Entity = null;
-						previousValue.Institucion = null;
-					}
-					this._Persona.Entity = value;
-					if ((value != null))
-					{
-						value.Institucion = this;
-						this._id = value.id;
-					}
-					else
-					{
-						this._id = default(System.Guid);
-					}
-					this.SendPropertyChanged("Persona");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Retroalimentacion_Proyecto>();
 			}
 		}
 	}
@@ -448,17 +297,31 @@ namespace Proyecta.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Retroaliimentacion_Proyecto")]
-	public partial class Retroaliimentacion_Proyecto : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Persona")]
+	public partial class Persona : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Guid _id;
 		
-		private string _url_Archivo;
+		private string _Cedula;
 		
-		private string _Comentario;
+		private string _Nombre;
+		
+		private string _Apellido1;
+		
+		private string _Apellido2;
+		
+		private char _Genero;
+		
+		private string _urlFoto;
+		
+		private EntitySet<Proyecto_Persona> _Proyecto_Personas;
+		
+		private EntityRef<Institucion> _Institucion;
+		
+		private EntityRef<Usuario> _Usuario;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -466,14 +329,25 @@ namespace Proyecta.Models
     partial void OnCreated();
     partial void OnidChanging(System.Guid value);
     partial void OnidChanged();
-    partial void Onurl_ArchivoChanging(string value);
-    partial void Onurl_ArchivoChanged();
-    partial void OnComentarioChanging(string value);
-    partial void OnComentarioChanged();
+    partial void OnCedulaChanging(string value);
+    partial void OnCedulaChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnApellido1Changing(string value);
+    partial void OnApellido1Changed();
+    partial void OnApellido2Changing(string value);
+    partial void OnApellido2Changed();
+    partial void OnGeneroChanging(char value);
+    partial void OnGeneroChanged();
+    partial void OnurlFotoChanging(string value);
+    partial void OnurlFotoChanged();
     #endregion
 		
-		public Retroaliimentacion_Proyecto()
+		public Persona()
 		{
+			this._Proyecto_Personas = new EntitySet<Proyecto_Persona>(new Action<Proyecto_Persona>(this.attach_Proyecto_Personas), new Action<Proyecto_Persona>(this.detach_Proyecto_Personas));
+			this._Institucion = default(EntityRef<Institucion>);
+			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
 		
@@ -497,42 +371,380 @@ namespace Proyecta.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url_Archivo", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
-		public string url_Archivo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Cedula
 		{
 			get
 			{
-				return this._url_Archivo;
+				return this._Cedula;
 			}
 			set
 			{
-				if ((this._url_Archivo != value))
+				if ((this._Cedula != value))
 				{
-					this.Onurl_ArchivoChanging(value);
+					this.OnCedulaChanging(value);
 					this.SendPropertyChanging();
-					this._url_Archivo = value;
-					this.SendPropertyChanged("url_Archivo");
-					this.Onurl_ArchivoChanged();
+					this._Cedula = value;
+					this.SendPropertyChanged("Cedula");
+					this.OnCedulaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
-		public string Comentario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Nombre
 		{
 			get
 			{
-				return this._Comentario;
+				return this._Nombre;
 			}
 			set
 			{
-				if ((this._Comentario != value))
+				if ((this._Nombre != value))
 				{
-					this.OnComentarioChanging(value);
+					this.OnNombreChanging(value);
 					this.SendPropertyChanging();
-					this._Comentario = value;
-					this.SendPropertyChanged("Comentario");
-					this.OnComentarioChanged();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido1", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Apellido1
+		{
+			get
+			{
+				return this._Apellido1;
+			}
+			set
+			{
+				if ((this._Apellido1 != value))
+				{
+					this.OnApellido1Changing(value);
+					this.SendPropertyChanging();
+					this._Apellido1 = value;
+					this.SendPropertyChanged("Apellido1");
+					this.OnApellido1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido2", DbType="VarChar(20)")]
+		public string Apellido2
+		{
+			get
+			{
+				return this._Apellido2;
+			}
+			set
+			{
+				if ((this._Apellido2 != value))
+				{
+					this.OnApellido2Changing(value);
+					this.SendPropertyChanging();
+					this._Apellido2 = value;
+					this.SendPropertyChanged("Apellido2");
+					this.OnApellido2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Genero", DbType="Char(1) NOT NULL")]
+		public char Genero
+		{
+			get
+			{
+				return this._Genero;
+			}
+			set
+			{
+				if ((this._Genero != value))
+				{
+					this.OnGeneroChanging(value);
+					this.SendPropertyChanging();
+					this._Genero = value;
+					this.SendPropertyChanged("Genero");
+					this.OnGeneroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlFoto", DbType="VarChar(256)")]
+		public string urlFoto
+		{
+			get
+			{
+				return this._urlFoto;
+			}
+			set
+			{
+				if ((this._urlFoto != value))
+				{
+					this.OnurlFotoChanging(value);
+					this.SendPropertyChanging();
+					this._urlFoto = value;
+					this.SendPropertyChanged("urlFoto");
+					this.OnurlFotoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Proyecto_Persona", Storage="_Proyecto_Personas", ThisKey="id", OtherKey="idPersona")]
+		public EntitySet<Proyecto_Persona> Proyecto_Personas
+		{
+			get
+			{
+				return this._Proyecto_Personas;
+			}
+			set
+			{
+				this._Proyecto_Personas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Institucion", Storage="_Institucion", ThisKey="id", OtherKey="id", IsUnique=true, IsForeignKey=false)]
+		public Institucion Institucion
+		{
+			get
+			{
+				return this._Institucion.Entity;
+			}
+			set
+			{
+				Institucion previousValue = this._Institucion.Entity;
+				if (((previousValue != value) 
+							|| (this._Institucion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Institucion.Entity = null;
+						previousValue.Persona = null;
+					}
+					this._Institucion.Entity = value;
+					if ((value != null))
+					{
+						value.Persona = this;
+					}
+					this.SendPropertyChanged("Institucion");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Usuario", ThisKey="id", OtherKey="id", IsUnique=true, IsForeignKey=false)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Persona = null;
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Persona = this;
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Proyecto_Personas(Proyecto_Persona entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = this;
+		}
+		
+		private void detach_Proyecto_Personas(Proyecto_Persona entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Institucion")]
+	public partial class Institucion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _id;
+		
+		private string _Nombre_Institucion;
+		
+		private string _Cedula_Representante;
+		
+		private string _urlLogo;
+		
+		private EntityRef<Persona> _Persona;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(System.Guid value);
+    partial void OnidChanged();
+    partial void OnNombre_InstitucionChanging(string value);
+    partial void OnNombre_InstitucionChanged();
+    partial void OnCedula_RepresentanteChanging(string value);
+    partial void OnCedula_RepresentanteChanged();
+    partial void OnurlLogoChanging(string value);
+    partial void OnurlLogoChanged();
+    #endregion
+		
+		public Institucion()
+		{
+			this._Persona = default(EntityRef<Persona>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					if (this._Persona.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Institucion", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Nombre_Institucion
+		{
+			get
+			{
+				return this._Nombre_Institucion;
+			}
+			set
+			{
+				if ((this._Nombre_Institucion != value))
+				{
+					this.OnNombre_InstitucionChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre_Institucion = value;
+					this.SendPropertyChanged("Nombre_Institucion");
+					this.OnNombre_InstitucionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula_Representante", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Cedula_Representante
+		{
+			get
+			{
+				return this._Cedula_Representante;
+			}
+			set
+			{
+				if ((this._Cedula_Representante != value))
+				{
+					this.OnCedula_RepresentanteChanging(value);
+					this.SendPropertyChanging();
+					this._Cedula_Representante = value;
+					this.SendPropertyChanged("Cedula_Representante");
+					this.OnCedula_RepresentanteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlLogo", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
+		public string urlLogo
+		{
+			get
+			{
+				return this._urlLogo;
+			}
+			set
+			{
+				if ((this._urlLogo != value))
+				{
+					this.OnurlLogoChanging(value);
+					this.SendPropertyChanging();
+					this._urlLogo = value;
+					this.SendPropertyChanged("urlLogo");
+					this.OnurlLogoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Institucion", Storage="_Persona", ThisKey="id", OtherKey="id", IsForeignKey=true)]
+		public Persona Persona
+		{
+			get
+			{
+				return this._Persona.Entity;
+			}
+			set
+			{
+				Persona previousValue = this._Persona.Entity;
+				if (((previousValue != value) 
+							|| (this._Persona.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Persona.Entity = null;
+						previousValue.Institucion = null;
+					}
+					this._Persona.Entity = value;
+					if ((value != null))
+					{
+						value.Institucion = this;
+						this._id = value.id;
+					}
+					else
+					{
+						this._id = default(System.Guid);
+					}
+					this.SendPropertyChanged("Persona");
 				}
 			}
 		}
@@ -733,280 +945,6 @@ namespace Proyecta.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Persona")]
-	public partial class Persona : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _id;
-		
-		private string _Cedula;
-		
-		private string _Nombre;
-		
-		private string _Apellido1;
-		
-		private string _Apellido2;
-		
-		private char _Genero;
-		
-		private EntityRef<Institucion> _Institucion;
-		
-		private EntitySet<Proyecto_Persona> _Proyecto_Personas;
-		
-		private EntityRef<Usuario> _Usuario;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(System.Guid value);
-    partial void OnidChanged();
-    partial void OnCedulaChanging(string value);
-    partial void OnCedulaChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnApellido1Changing(string value);
-    partial void OnApellido1Changed();
-    partial void OnApellido2Changing(string value);
-    partial void OnApellido2Changed();
-    partial void OnGeneroChanging(char value);
-    partial void OnGeneroChanged();
-    #endregion
-		
-		public Persona()
-		{
-			this._Institucion = default(EntityRef<Institucion>);
-			this._Proyecto_Personas = new EntitySet<Proyecto_Persona>(new Action<Proyecto_Persona>(this.attach_Proyecto_Personas), new Action<Proyecto_Persona>(this.detach_Proyecto_Personas));
-			this._Usuario = default(EntityRef<Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Cedula
-		{
-			get
-			{
-				return this._Cedula;
-			}
-			set
-			{
-				if ((this._Cedula != value))
-				{
-					this.OnCedulaChanging(value);
-					this.SendPropertyChanging();
-					this._Cedula = value;
-					this.SendPropertyChanged("Cedula");
-					this.OnCedulaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido1", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Apellido1
-		{
-			get
-			{
-				return this._Apellido1;
-			}
-			set
-			{
-				if ((this._Apellido1 != value))
-				{
-					this.OnApellido1Changing(value);
-					this.SendPropertyChanging();
-					this._Apellido1 = value;
-					this.SendPropertyChanged("Apellido1");
-					this.OnApellido1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido2", DbType="VarChar(20)")]
-		public string Apellido2
-		{
-			get
-			{
-				return this._Apellido2;
-			}
-			set
-			{
-				if ((this._Apellido2 != value))
-				{
-					this.OnApellido2Changing(value);
-					this.SendPropertyChanging();
-					this._Apellido2 = value;
-					this.SendPropertyChanged("Apellido2");
-					this.OnApellido2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Genero", DbType="Char(1) NOT NULL")]
-		public char Genero
-		{
-			get
-			{
-				return this._Genero;
-			}
-			set
-			{
-				if ((this._Genero != value))
-				{
-					this.OnGeneroChanging(value);
-					this.SendPropertyChanging();
-					this._Genero = value;
-					this.SendPropertyChanged("Genero");
-					this.OnGeneroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Institucion", Storage="_Institucion", ThisKey="id", OtherKey="id", IsUnique=true, IsForeignKey=false)]
-		public Institucion Institucion
-		{
-			get
-			{
-				return this._Institucion.Entity;
-			}
-			set
-			{
-				Institucion previousValue = this._Institucion.Entity;
-				if (((previousValue != value) 
-							|| (this._Institucion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Institucion.Entity = null;
-						previousValue.Persona = null;
-					}
-					this._Institucion.Entity = value;
-					if ((value != null))
-					{
-						value.Persona = this;
-					}
-					this.SendPropertyChanged("Institucion");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Proyecto_Persona", Storage="_Proyecto_Personas", ThisKey="id", OtherKey="idPersona")]
-		public EntitySet<Proyecto_Persona> Proyecto_Personas
-		{
-			get
-			{
-				return this._Proyecto_Personas;
-			}
-			set
-			{
-				this._Proyecto_Personas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Usuario", ThisKey="id", OtherKey="id", IsUnique=true, IsForeignKey=false)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Persona = null;
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Persona = this;
-					}
-					this.SendPropertyChanged("Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Proyecto_Personas(Proyecto_Persona entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = this;
-		}
-		
-		private void detach_Proyecto_Personas(Proyecto_Persona entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Proyecto")]
 	public partial class Proyecto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1029,9 +967,17 @@ namespace Proyecta.Models
 		
 		private System.Nullable<int> _CantidadEvaluacionesUsuario;
 		
-		private int _Nombre;
+		private string _Nombre;
+		
+		private System.DateTime _FechaCreacion;
+		
+		private System.DateTime _FechaInicio;
+		
+		private System.DateTime _FechaFinalizacion;
 		
 		private EntitySet<Proyecto_Persona> _Proyecto_Personas;
+		
+		private EntityRef<Retroalimentacion_Proyecto> _Retroalimentacion_Proyecto;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1053,13 +999,20 @@ namespace Proyecta.Models
     partial void OnPromedioEvaluacionChanged();
     partial void OnCantidadEvaluacionesUsuarioChanging(System.Nullable<int> value);
     partial void OnCantidadEvaluacionesUsuarioChanged();
-    partial void OnNombreChanging(int value);
+    partial void OnNombreChanging(string value);
     partial void OnNombreChanged();
+    partial void OnFechaCreacionChanging(System.DateTime value);
+    partial void OnFechaCreacionChanged();
+    partial void OnFechaInicioChanging(System.DateTime value);
+    partial void OnFechaInicioChanged();
+    partial void OnFechaFinalizacionChanging(System.DateTime value);
+    partial void OnFechaFinalizacionChanged();
     #endregion
 		
 		public Proyecto()
 		{
 			this._Proyecto_Personas = new EntitySet<Proyecto_Persona>(new Action<Proyecto_Persona>(this.attach_Proyecto_Personas), new Action<Proyecto_Persona>(this.detach_Proyecto_Personas));
+			this._Retroalimentacion_Proyecto = default(EntityRef<Retroalimentacion_Proyecto>);
 			OnCreated();
 		}
 		
@@ -1223,8 +1176,8 @@ namespace Proyecta.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="Int NOT NULL")]
-		public int Nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nombre
 		{
 			get
 			{
@@ -1243,6 +1196,66 @@ namespace Proyecta.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaCreacion
+		{
+			get
+			{
+				return this._FechaCreacion;
+			}
+			set
+			{
+				if ((this._FechaCreacion != value))
+				{
+					this.OnFechaCreacionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaCreacion = value;
+					this.SendPropertyChanged("FechaCreacion");
+					this.OnFechaCreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaInicio", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaInicio
+		{
+			get
+			{
+				return this._FechaInicio;
+			}
+			set
+			{
+				if ((this._FechaInicio != value))
+				{
+					this.OnFechaInicioChanging(value);
+					this.SendPropertyChanging();
+					this._FechaInicio = value;
+					this.SendPropertyChanged("FechaInicio");
+					this.OnFechaInicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFinalizacion", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaFinalizacion
+		{
+			get
+			{
+				return this._FechaFinalizacion;
+			}
+			set
+			{
+				if ((this._FechaFinalizacion != value))
+				{
+					this.OnFechaFinalizacionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaFinalizacion = value;
+					this.SendPropertyChanged("FechaFinalizacion");
+					this.OnFechaFinalizacionChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyecto_Proyecto_Persona", Storage="_Proyecto_Personas", ThisKey="id", OtherKey="idProyecto")]
 		public EntitySet<Proyecto_Persona> Proyecto_Personas
 		{
@@ -1253,6 +1266,35 @@ namespace Proyecta.Models
 			set
 			{
 				this._Proyecto_Personas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyecto_Retroalimentacion_Proyecto", Storage="_Retroalimentacion_Proyecto", ThisKey="id", OtherKey="id", IsUnique=true, IsForeignKey=false)]
+		public Retroalimentacion_Proyecto Retroalimentacion_Proyecto
+		{
+			get
+			{
+				return this._Retroalimentacion_Proyecto.Entity;
+			}
+			set
+			{
+				Retroalimentacion_Proyecto previousValue = this._Retroalimentacion_Proyecto.Entity;
+				if (((previousValue != value) 
+							|| (this._Retroalimentacion_Proyecto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Retroalimentacion_Proyecto.Entity = null;
+						previousValue.Proyecto = null;
+					}
+					this._Retroalimentacion_Proyecto.Entity = value;
+					if ((value != null))
+					{
+						value.Proyecto = this;
+					}
+					this.SendPropertyChanged("Retroalimentacion_Proyecto");
+				}
 			}
 		}
 		
@@ -1286,6 +1328,157 @@ namespace Proyecta.Models
 		{
 			this.SendPropertyChanging();
 			entity.Proyecto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Retroalimentacion_Proyecto")]
+	public partial class Retroalimentacion_Proyecto : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _id;
+		
+		private string _url_Archivo;
+		
+		private string _Comentario;
+		
+		private EntityRef<Proyecto> _Proyecto;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(System.Guid value);
+    partial void OnidChanged();
+    partial void Onurl_ArchivoChanging(string value);
+    partial void Onurl_ArchivoChanged();
+    partial void OnComentarioChanging(string value);
+    partial void OnComentarioChanged();
+    #endregion
+		
+		public Retroalimentacion_Proyecto()
+		{
+			this._Proyecto = default(EntityRef<Proyecto>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					if (this._Proyecto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url_Archivo", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
+		public string url_Archivo
+		{
+			get
+			{
+				return this._url_Archivo;
+			}
+			set
+			{
+				if ((this._url_Archivo != value))
+				{
+					this.Onurl_ArchivoChanging(value);
+					this.SendPropertyChanging();
+					this._url_Archivo = value;
+					this.SendPropertyChanged("url_Archivo");
+					this.Onurl_ArchivoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this.OnComentarioChanging(value);
+					this.SendPropertyChanging();
+					this._Comentario = value;
+					this.SendPropertyChanged("Comentario");
+					this.OnComentarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyecto_Retroalimentacion_Proyecto", Storage="_Proyecto", ThisKey="id", OtherKey="id", IsForeignKey=true)]
+		public Proyecto Proyecto
+		{
+			get
+			{
+				return this._Proyecto.Entity;
+			}
+			set
+			{
+				Proyecto previousValue = this._Proyecto.Entity;
+				if (((previousValue != value) 
+							|| (this._Proyecto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Proyecto.Entity = null;
+						previousValue.Retroalimentacion_Proyecto = null;
+					}
+					this._Proyecto.Entity = value;
+					if ((value != null))
+					{
+						value.Retroalimentacion_Proyecto = this;
+						this._id = value.id;
+					}
+					else
+					{
+						this._id = default(System.Guid);
+					}
+					this.SendPropertyChanged("Proyecto");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

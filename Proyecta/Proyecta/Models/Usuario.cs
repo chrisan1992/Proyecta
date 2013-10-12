@@ -58,7 +58,7 @@ namespace Proyecta.Models
             {
                 ModeloDataContext ct = new ModeloDataContext();
                 us.id = new Guid();
-                us.Persona.id = new Guid();
+                us.Persona.id = us.id;
                 ct.Usuarios.InsertOnSubmit(us);
                 ct.SubmitChanges();
                 ct.Dispose();

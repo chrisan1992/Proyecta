@@ -32,7 +32,7 @@ namespace Proyecta.Models
 
     }
 
-    [MetadataType(typeof(IUsuario))]
+    [MetadataType(typeof(IProyecto))]
     public partial class Proyecto
     {
         public List<Proyecto> Get3FeaturedProyectos()

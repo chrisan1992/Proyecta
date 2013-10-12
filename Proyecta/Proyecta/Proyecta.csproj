@@ -130,6 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
