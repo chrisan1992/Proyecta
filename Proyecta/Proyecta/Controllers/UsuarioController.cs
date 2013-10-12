@@ -16,6 +16,13 @@ namespace Proyecta.Controllers
             return View();
         }
 
+        // GET: /Usuario/
+
+        public ActionResult Exito()
+        {
+            return View();
+        }
+
         // GET: /Usuario/EscogerTipo
 
         public ActionResult EscogerTipo()
@@ -28,16 +35,15 @@ namespace Proyecta.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(Proyecta.Models.Usuario us)
         {
+            us.NombreUsuario = us.Correo;
+
             if (ModelState.IsValid)
             {
                 
                 if (us.CreateUsario(us))
                 {
-                    ViewBag.Result = ":D";
-                }
-                else
-                {
-                    ViewBag.Result = ":(";
+                    return RedirectToAction("Exito");
+                   
                 }
             }
             return View(us);

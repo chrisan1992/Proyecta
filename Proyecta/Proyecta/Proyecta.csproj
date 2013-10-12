@@ -224,6 +224,7 @@
     </None>
     <Content Include="Views\Usuario\Crear.cshtml" />
     <Content Include="Views\Usuario\EscogerTipo.cshtml" />
+    <Content Include="Views\Usuario\Exito.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
