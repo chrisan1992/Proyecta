@@ -130,6 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +148,7 @@
     <Content Include="assets\images\backgrounds\page-header-bg-1.jpg" />
     <Content Include="assets\images\bg-blue.jpg" />
     <Content Include="assets\images\costa_rica.png" />
+    <Content Include="assets\images\Logo Proyecta.png" />
     <Content Include="assets\images\logo-small-top.png" />
     <Content Include="assets\images\logo.png" />
     <Content Include="assets\images\shadow-separator-bottom.png" />
@@ -220,6 +222,7 @@
       <DependentUpon>Modelo.dbml</DependentUpon>
     </None>
     <Content Include="Views\Usuario\Crear.cshtml" />
+    <Content Include="Views\Usuario\EscogerTipo.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

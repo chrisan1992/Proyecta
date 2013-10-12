@@ -13,7 +13,13 @@ namespace Proyecta.Controllers
 
         public ActionResult Crear()
         {
-            ViewBag.Result = "nada";
+            return View();
+        }
+
+        // GET: /Usuario/EscogerTipo
+
+        public ActionResult EscogerTipo()
+        {
             return View();
         }
 

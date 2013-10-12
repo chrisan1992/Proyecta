@@ -8,24 +8,12 @@
       <Association Name="Persona_Institucion" Member="Persona" ThisKey="id" OtherKey="id" Type="Persona" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Proyecto" Member="Proyectos">
-    <Type Name="Proyecto">
-      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Cedula_Proponiente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="Propuesta" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="Recursos" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="Provincia" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Canton" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="id" OtherKey="idProyecto" Type="Proyecto_Persona" />
-      <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyecto" ThisKey="id" OtherKey="id" Type="Retroaliimentacion_Proyecto" Cardinality="One" />
-    </Type>
-  </Table>
   <Table Name="dbo.Proyecto_Personas" Member="Proyecto_Personas">
     <Type Name="Proyecto_Persona">
       <Column Name="idPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="idProyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto" ThisKey="idProyecto" OtherKey="id" Type="Proyecto" IsForeignKey="true" />
       <Association Name="Persona_Proyecto_Persona" Member="Persona" ThisKey="idPersona" OtherKey="id" Type="Persona" IsForeignKey="true" />
+      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto" ThisKey="idProyecto" OtherKey="id" Type="Proyecto" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos">
@@ -33,7 +21,6 @@
       <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="url_Archivo" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="Comentario" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Proyecto" ThisKey="id" OtherKey="id" Type="Proyecto" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Usuarios" Member="Usuarios">
@@ -56,6 +43,20 @@
       <Association Name="Persona_Institucion" Member="Institucion" ThisKey="id" OtherKey="id" Type="Institucion" Cardinality="One" />
       <Association Name="Persona_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="id" OtherKey="idPersona" Type="Proyecto_Persona" />
       <Association Name="Persona_Usuario" Member="Usuario" ThisKey="id" OtherKey="id" Type="Usuario" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proyecto" Member="Proyectos">
+    <Type Name="Proyecto">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cedula_Proponiente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Propuesta" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Recursos" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Provincia" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Canton" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PromedioEvaluacion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CantidadEvaluacionesUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="id" OtherKey="idProyecto" Type="Proyecto_Persona" />
     </Type>
   </Table>
 </Database>
