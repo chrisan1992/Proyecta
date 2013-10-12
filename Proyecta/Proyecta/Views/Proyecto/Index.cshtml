@@ -6,8 +6,12 @@
 }
 
 @section content{
-    <h2>Proyecto: @Html.DisplayFor(model => model.Nombre)</h2>
-    <h2>Descripcion:</h2>
-    <h2>Recursos:</h2>
-
+    <div class="col-md-9">
+        <h2>Proyecto: @Html.DisplayFor(model => model.Nombre)</h2>
+        <h2>Descripcion:</h2>
+        <p>@Html.DisplayFor(model => model.Propuesta)</p>
+        <h2>Recursos:</h2>
+        <p>@Html.DisplayFor(model => model.Recursos)</p>
+    </div>
+    
 }
