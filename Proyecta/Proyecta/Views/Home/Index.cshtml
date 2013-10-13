@@ -53,6 +53,11 @@
             <div class="row">
                 @foreach(var item in Model){
                     descripcion = item.Propuesta;
+                    string url = "";
+                    try{
+                        url = (item.urlImagen).Replace("~", "");
+                    } catch(Exception e){ }
+                    
                     if (descripcion.Length > 200)
                     {
                         descripcion = descripcion.Substring(0, 199) + " ...";
@@ -62,7 +67,7 @@
                         <div class="team-member animated-when-visible delay-animation-one animated bounceInUp" data-animation-type="bounceInUp">
                             <div class="member-avatar">
                                 <a href="Proyecto/Index?id=@item.Id"><!--imagen redirecciona-->
-                                    <img alt="" src="http://dr.robert.cr/wp-content/uploads/2009/05/tortuga.jpeg" />
+                                    <img alt="" src="@url"/>
                                 </a>
                             </div>
                             <h3 style="min-height: 90px;">@item.Nombre</h3>

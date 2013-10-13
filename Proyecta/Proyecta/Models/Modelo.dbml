@@ -67,6 +67,7 @@
       <Column Name="FechaFinal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="Categoria" Type="System.String" DbType="VarChar(99)" CanBeNull="true" />
+      <Column Name="urlImagen" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
       <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
       <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos" ThisKey="Id" OtherKey="Id_Proyecto" Type="Retroaliimentacion_Proyecto" />
     </Type>
