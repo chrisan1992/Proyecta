@@ -149,6 +149,9 @@
     <Content Include="assets\images\backgrounds\page-header-bg-1.jpg" />
     <Content Include="assets\images\bg-blue.jpg" />
     <Content Include="assets\images\costa_rica.png" />
+    <Content Include="assets\images\Defensoria\logo.jpg" />
+    <Content Include="assets\images\Gobierno Digital\logo.png" />
+    <Content Include="assets\images\Grupo Inco\logo.png" />
     <Content Include="assets\images\Logo Proyecta.png" />
     <Content Include="assets\images\logo-small-top.png" />
     <Content Include="assets\images\logo.png" />
@@ -225,6 +228,7 @@
     <Content Include="Views\Usuario\Crear.cshtml" />
     <Content Include="Views\Usuario\EscogerTipo.cshtml" />
     <Content Include="Views\Usuario\Exito.cshtml" />
+    <Content Include="Views\Proyecto\BuscarProyecto.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
