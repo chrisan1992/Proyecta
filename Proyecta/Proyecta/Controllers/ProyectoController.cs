@@ -79,7 +79,7 @@ namespace Proyecta.Controllers
                         Directory.CreateDirectory(Server.MapPath("~/assets/images/Proyectos/" + client.Id.ToString()));
                         var imageURL = Path.Combine(Server.MapPath("~/assets/images/Proyectos/" + client.Id.ToString()), imageName);
                         image.SaveAs(imageURL);
-                        r = "assets/images/Proyectos/" + client.Id.ToString() + "/" + imageName;
+                        r = "/assets/images/Proyectos/" + client.Id.ToString() + "/" + imageName;
                     }
                     else
                     {
@@ -96,7 +96,7 @@ namespace Proyecta.Controllers
             {
                 if (image.ContentLength <= 0) // No image
                 {
-                    r = "assets/images/logo.png";
+                    r = "/assets/images/logo.png";
                 }
                 else // Bigger than max size
                 {
