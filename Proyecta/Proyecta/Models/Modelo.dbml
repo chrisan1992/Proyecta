@@ -34,25 +34,6 @@
       <Association Name="Persona_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdPersona" Type="Proyecto_Persona" />
     </Type>
   </Table>
-  <Table Name="dbo.Proyecto" Member="Proyectos">
-    <Type Name="Proyecto">
-      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Cedula_Proponiente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="Propuesta" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="Recursos" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
-      <Column Name="Provincia" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Canton" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="PromedioEvaluacion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CantidadEvaluacionesUsarios" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="FechaInicio" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="FechaFinal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
-      <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos" ThisKey="Id" OtherKey="Id_Proyecto" Type="Retroaliimentacion_Proyecto" />
-    </Type>
-  </Table>
   <Table Name="dbo.Proyecto_Personas" Member="Proyecto_Personas">
     <Type Name="Proyecto_Persona">
       <Column Name="IdPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -68,6 +49,26 @@
       <Column Name="Url_Archivo" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="Comentario" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
       <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Proyecto" ThisKey="Id_Proyecto" OtherKey="Id" Type="Proyecto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proyecto" Member="Proyectos">
+    <Type Name="Proyecto">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cedula_Proponiente" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Propuesta" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Recursos" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Provincia" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Canton" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PromedioEvaluacion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CantidadEvaluacionesUsarios" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFinal" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(99)" CanBeNull="true" />
+      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
+      <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos" ThisKey="Id" OtherKey="Id_Proyecto" Type="Retroaliimentacion_Proyecto" />
     </Type>
   </Table>
 </Database>

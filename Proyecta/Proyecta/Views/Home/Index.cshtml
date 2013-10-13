@@ -3,38 +3,15 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string descripcion = "";
 }
 
 @section header{
-    <!--
-    <section class='leaderboard leaderboard-style-one'>
-        <div class='container'>
-            <h1 class='animated fadeInDown'>Proyecta</h1>
-            <h2 class='animated fadeInDown'><i>"Enlazando ideas y creando soluciones"</i></h2>
-            <div class='relative-w'>
-                <div class='loupe loupe-left animated rollIn'>
-                    <img alt='' src='http://placehold.it/700x500'>
-                </div>
-                <div class='loupe loupe-right animated fadeInRightBig'>
-                    
-                    <img src="~/assets/images/costa_rica.png" />
-                </div>
-                <div class='frame-browser animated bounceInUp'>
-                    <div class='frame-buttons'>
-                    <div class='frame-button-close'></div>
-                    <div class='frame-button-max'></div>
-                    <div class='frame-button-min'></div>
-                    </div>
-                    <div class='frame-browser-image'>
-                    <img alt=''src='http://placehold.it/700x500'>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-        -->
+
     <div class="container">
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            
+        </div>
         <div class="col-md-9">
             <h3>Proyectos Destacados</h3>
         </div>
@@ -68,22 +45,30 @@
                         </li>
                     </ul>
                 </div>
+                <img src="~/assets/images/Logo Proyecta.png" style="width: 75%; margin-top: 20px;" />
             </div>
+            
         </div>
         <div class="col-md-9">
             <div class="row">
                 @foreach(var item in Model){
+                    descripcion = item.Propuesta;
+                    if (descripcion.Length > 200)
+                    {
+                        descripcion = descripcion.Substring(0, 199) + " ...";
+                    }
+                    
                     <div class="col-md-4">
                         <div class="team-member animated-when-visible delay-animation-one animated bounceInUp" data-animation-type="bounceInUp">
                             <div class="member-avatar">
                                 <a href="Proyecto/Index?id=@item.Id"><!--imagen redirecciona-->
-                                    <img alt="" src="http://dr.robert.cr/wp-content/uploads/2009/05/tortuga.jpeg" width="500px" height="211px">
+                                    <img alt="" src="http://dr.robert.cr/wp-content/uploads/2009/05/tortuga.jpeg" />
                                 </a>
                             </div>
-                            <h3>@item.Nombre</h3>
-                            <h4>Categoria</h4>
-                            <p>@item.Propuesta...</p>
-                            
+                            <h3 style="min-height: 90px;">@item.Nombre</h3>
+                            <h4>Categoria: @item.Categoria</h4>
+                            <p>@descripcion</p>
+                            <p><a href="Proyecto/Index?id=@item.Id">Leer más</a></p>
                             <div class="member-social">
                                 <a href="#">
                                     <i class="icon-facebook"></i>
@@ -106,16 +91,27 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
             <div style="border-top:1px solid #ddd;margin-top:20px;">
-                <h3>Empresas Destacadas!</h3>
+                <h3>Empresas Destacadas</h3>
             </div>
-            <div class="row">
-                @{
-                    
-                    }
-                @foreach(var item in Model){
-                
-                }
+            <div class="clients">
+            <div class="row bottom-margin">
+                <div class="col-md-4">
+                    <div style="width: 100%">
+                        <img alt="" class="animated-when-visible animated rotateInUpLeft" data-animation-type="rotateInUpLeft" src="~/assets/images/Grupo%20Inco/logo.png" style="height: 90px;">
+                    </div> 
+                </div>
+                <div class="col-md-4">
+                    <div style="width: 100%;">
+                        <img alt="" class="animated-when-visible delay-animation-one animated rotateInUpLeft" data-animation-type="rotateInUpLeft" src="~/assets/images/Gobierno%20Digital/logo.png" style="height: 90px;">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div style="width: 100%;">
+                        <img alt="" class="animated-when-visible delay-animation-two animated rotateInUpLeft" data-animation-type="rotateInUpLeft" src="~/assets/images/Defensoria/logo.jpg" style="height: 90px;">
+                    </div>
+                </div>
             </div>
+    </div>
         </div>
     </div>
 }
