@@ -23,5 +23,10 @@ namespace Proyecta.Controllers
             return View();
         }
 
+        public ActionResult CrearProyecto()
+        {
+            return View();
+        }
+
     }
 }
