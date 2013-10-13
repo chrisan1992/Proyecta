@@ -18,5 +18,10 @@ namespace Proyecta.Controllers
             return View(p.GetProyecto(new Guid(id)));
         }
 
+        public ActionResult BuscarProyecto()
+        {
+            return View();
+        }
+
     }
 }
