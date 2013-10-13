@@ -45,12 +45,12 @@ namespace Proyecta.Models
     partial void InsertRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
     partial void UpdateRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
     partial void DeleteRetroaliimentacion_Proyecto(Retroaliimentacion_Proyecto instance);
-    partial void InsertProyecto(Proyecto instance);
-    partial void UpdateProyecto(Proyecto instance);
-    partial void DeleteProyecto(Proyecto instance);
     partial void InsertProyecto_Imagene(Proyecto_Imagene instance);
     partial void UpdateProyecto_Imagene(Proyecto_Imagene instance);
     partial void DeleteProyecto_Imagene(Proyecto_Imagene instance);
+    partial void InsertProyecto(Proyecto instance);
+    partial void UpdateProyecto(Proyecto instance);
+    partial void DeleteProyecto(Proyecto instance);
     #endregion
 		
 		public ModeloDataContext() : 
@@ -123,19 +123,19 @@ namespace Proyecta.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Proyecto> Proyectos
-		{
-			get
-			{
-				return this.GetTable<Proyecto>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Proyecto_Imagene> Proyecto_Imagenes
 		{
 			get
 			{
 				return this.GetTable<Proyecto_Imagene>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Proyecto> Proyectos
+		{
+			get
+			{
+				return this.GetTable<Proyecto>();
 			}
 		}
 	}
@@ -1171,6 +1171,157 @@ namespace Proyecta.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Proyecto_Imagenes")]
+	public partial class Proyecto_Imagene : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _id;
+		
+		private System.Guid _Id_Proyecto;
+		
+		private string _urlImagen;
+		
+		private EntityRef<Proyecto> _Proyecto;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(System.Guid value);
+    partial void OnidChanged();
+    partial void OnId_ProyectoChanging(System.Guid value);
+    partial void OnId_ProyectoChanged();
+    partial void OnurlImagenChanging(string value);
+    partial void OnurlImagenChanged();
+    #endregion
+		
+		public Proyecto_Imagene()
+		{
+			this._Proyecto = default(EntityRef<Proyecto>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Proyecto", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid Id_Proyecto
+		{
+			get
+			{
+				return this._Id_Proyecto;
+			}
+			set
+			{
+				if ((this._Id_Proyecto != value))
+				{
+					if (this._Proyecto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnId_ProyectoChanging(value);
+					this.SendPropertyChanging();
+					this._Id_Proyecto = value;
+					this.SendPropertyChanged("Id_Proyecto");
+					this.OnId_ProyectoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImagen", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
+		public string urlImagen
+		{
+			get
+			{
+				return this._urlImagen;
+			}
+			set
+			{
+				if ((this._urlImagen != value))
+				{
+					this.OnurlImagenChanging(value);
+					this.SendPropertyChanging();
+					this._urlImagen = value;
+					this.SendPropertyChanged("urlImagen");
+					this.OnurlImagenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyecto_Proyecto_Imagene", Storage="_Proyecto", ThisKey="Id_Proyecto", OtherKey="Id", IsForeignKey=true)]
+		public Proyecto Proyecto
+		{
+			get
+			{
+				return this._Proyecto.Entity;
+			}
+			set
+			{
+				Proyecto previousValue = this._Proyecto.Entity;
+				if (((previousValue != value) 
+							|| (this._Proyecto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Proyecto.Entity = null;
+						previousValue.Proyecto_Imagenes.Remove(this);
+					}
+					this._Proyecto.Entity = value;
+					if ((value != null))
+					{
+						value.Proyecto_Imagenes.Add(this);
+						this._Id_Proyecto = value.Id;
+					}
+					else
+					{
+						this._Id_Proyecto = default(System.Guid);
+					}
+					this.SendPropertyChanged("Proyecto");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Proyecto")]
 	public partial class Proyecto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1197,7 +1348,7 @@ namespace Proyecta.Models
 		
 		private System.DateTime _FechaCreacion;
 		
-		private System.DateTime _FechaInicio;
+		private System.Nullable<System.DateTime> _FechaInicio;
 		
 		private System.Nullable<System.DateTime> _FechaFinal;
 		
@@ -1237,7 +1388,7 @@ namespace Proyecta.Models
     partial void OnNombreChanged();
     partial void OnFechaCreacionChanging(System.DateTime value);
     partial void OnFechaCreacionChanged();
-    partial void OnFechaInicioChanging(System.DateTime value);
+    partial void OnFechaInicioChanging(System.Nullable<System.DateTime> value);
     partial void OnFechaInicioChanged();
     partial void OnFechaFinalChanging(System.Nullable<System.DateTime> value);
     partial void OnFechaFinalChanged();
@@ -1457,8 +1608,8 @@ namespace Proyecta.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaInicio", DbType="DateTime NOT NULL")]
-		public System.DateTime FechaInicio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaInicio", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaInicio
 		{
 			get
 			{
@@ -1650,157 +1801,6 @@ namespace Proyecta.Models
 		{
 			this.SendPropertyChanging();
 			entity.Proyecto = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Proyecto_Imagenes")]
-	public partial class Proyecto_Imagene : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _id;
-		
-		private System.Guid _Id_Proyecto;
-		
-		private string _urlImagen;
-		
-		private EntityRef<Proyecto> _Proyecto;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(System.Guid value);
-    partial void OnidChanged();
-    partial void OnId_ProyectoChanging(System.Guid value);
-    partial void OnId_ProyectoChanged();
-    partial void OnurlImagenChanging(string value);
-    partial void OnurlImagenChanged();
-    #endregion
-		
-		public Proyecto_Imagene()
-		{
-			this._Proyecto = default(EntityRef<Proyecto>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Proyecto", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid Id_Proyecto
-		{
-			get
-			{
-				return this._Id_Proyecto;
-			}
-			set
-			{
-				if ((this._Id_Proyecto != value))
-				{
-					if (this._Proyecto.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnId_ProyectoChanging(value);
-					this.SendPropertyChanging();
-					this._Id_Proyecto = value;
-					this.SendPropertyChanged("Id_Proyecto");
-					this.OnId_ProyectoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImagen", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
-		public string urlImagen
-		{
-			get
-			{
-				return this._urlImagen;
-			}
-			set
-			{
-				if ((this._urlImagen != value))
-				{
-					this.OnurlImagenChanging(value);
-					this.SendPropertyChanging();
-					this._urlImagen = value;
-					this.SendPropertyChanged("urlImagen");
-					this.OnurlImagenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Proyecto_Proyecto_Imagene", Storage="_Proyecto", ThisKey="Id_Proyecto", OtherKey="Id", IsForeignKey=true)]
-		public Proyecto Proyecto
-		{
-			get
-			{
-				return this._Proyecto.Entity;
-			}
-			set
-			{
-				Proyecto previousValue = this._Proyecto.Entity;
-				if (((previousValue != value) 
-							|| (this._Proyecto.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Proyecto.Entity = null;
-						previousValue.Proyecto_Imagenes.Remove(this);
-					}
-					this._Proyecto.Entity = value;
-					if ((value != null))
-					{
-						value.Proyecto_Imagenes.Add(this);
-						this._Id_Proyecto = value.Id;
-					}
-					else
-					{
-						this._Id_Proyecto = default(System.Guid);
-					}
-					this.SendPropertyChanged("Proyecto");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }
