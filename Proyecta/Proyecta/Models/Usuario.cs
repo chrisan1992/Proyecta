@@ -9,10 +9,6 @@ namespace Proyecta.Models
 {
     public class IUsuario
     {
-        [Display(Name = "Cédula")]
-        [Required(ErrorMessage = "obligatorio")]
-        [StringLength(20, ErrorMessage = "Contraseña de no más de 20 caracteres")]
-        public string Cedula { get; set; }
 
         [Display(Name = "Contraseña")]
         [DataType(DataType.Password)]
@@ -30,6 +26,8 @@ namespace Proyecta.Models
     [MetadataType(typeof(IUsuario))]
     public partial class Usuario
     {
+
+        public Persona IPersona{ get; set; }
 
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "Las dos contraseñas tienen que ser iguales")]
@@ -57,12 +55,19 @@ namespace Proyecta.Models
             try
             {
                 ModeloDataContext ct = new ModeloDataContext();
-                us.id = new Guid();
-                us.Persona.id = us.id;
-                ct.Usuarios.InsertOnSubmit(us);
-                ct.SubmitChanges();
-                ct.Dispose();
-                return true;
+                Models.Persona p = new Persona();
+                if (!p.CreatePersona(us).Equals(Guid.Empty))
+                {
+                    us.Id = Guid.NewGuid();
+                    ct.Usuarios.InsertOnSubmit(us);
+                    ct.SubmitChanges();
+                    ct.Dispose();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception e)
             {

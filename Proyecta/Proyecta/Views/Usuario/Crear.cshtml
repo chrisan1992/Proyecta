@@ -19,25 +19,23 @@
         <div class='form-group' style="margin-top: 20px;">
             <div class='row'>
                 <div class='col-md-6'>
-                    @ViewBag.Result
-                    @Html.LabelFor(u => u.Persona.Nombre, null, new { @class = "control-label" })
-                    @Html.TextBoxFor(u => u.Persona.Nombre, new { @class = "form-control", @placeholder = "Ej: Juan" })
-                    @Html.ValidationMessageFor(u => u.Persona.Nombre, null, new { @style="color: red;" })
+                    @Html.LabelFor(u => u.IPersona.Nombre, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.IPersona.Nombre, new { @class = "form-control", @placeholder = "Ej: Juan" })
+                    @Html.ValidationMessageFor(u => u.IPersona.Nombre, null, new { @style="color: red;" })
                 </div>
                 <div class='col-md-6'>
-                    @Html.LabelFor(u => u.Persona.Apellido1, null, new { @class = "control-label" })
-                    @Html.TextBoxFor(u => u.Persona.Apellido1, new { @class = "form-control", @placeholder = "Ej: Pérez" })
-                    @Html.ValidationMessageFor(u => u.Persona.Apellido1, null, new { @style="color: red;" })
+                    @Html.LabelFor(u => u.IPersona.Apellido1, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.IPersona.Apellido1, new { @class = "form-control", @placeholder = "Ej: Pérez" })
+                    @Html.ValidationMessageFor(u => u.IPersona.Apellido1, null, new { @style="color: red;" })
                 </div>
             </div>
         </div>
         <div class='form-group' style="margin-top: 20px;">
             <div class='row'>
                 <div class='col-md-6'>
-                    @ViewBag.Result
-                    @Html.LabelFor(u => u.Cedula, null, new { @class = "control-label" })
-                    @Html.TextBoxFor(u => u.Cedula, new { @class = "form-control", @placeholder = "Ej: 114650237" })
-                    @Html.ValidationMessageFor(u => u.Cedula, null, new { @style="color: red;" })
+                    @Html.LabelFor(u => u.IPersona.Cedula, null, new { @class = "control-label" })
+                    @Html.TextBoxFor(u => u.IPersona.Cedula, new { @class = "form-control", @placeholder = "Ej: 114650237" })
+                    @Html.ValidationMessageFor(u => u.IPersona.Cedula, null, new { @style="color: red;" })
                 </div>
                 <div class='col-md-6'>
                     @Html.LabelFor(u => u.Correo, null, new { @class = "control-label" })
@@ -57,6 +55,32 @@
                     @Html.LabelFor(u => u.ConfirmPassword, null, new { @class = "control-label" })
                     @Html.PasswordFor(u => u.ConfirmPassword, new { @class = "form-control" })
                     @Html.ValidationMessageFor(u => u.ConfirmPassword, null, new { @style="color: red;" })
+                </div>
+            </div>
+        </div>
+        <div class='form-group'>
+            <div class='row'>
+                <div class='col-md-6'>
+                    @*Html.LabelFor(u => u.IPersona.urlFoto, null, new { @class = "control-label" })
+                    @Html.PasswordFor(u => u.IPersona.urlFoto, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(u => u.IPersona.urlFoto, null, new { @style="color: red;" })*@
+                </div>
+                <div class='col-md-6'>
+                    <div class='row'>
+                        <div class='col-md-12'>
+                            @Html.LabelFor(u => u.IPersona.Genero, null, new { @class = "control-label" })
+                        </div>
+                    </div>
+
+                    <label class="radiobutton">
+                    @Html.RadioButtonFor(u => u.IPersona.Genero, 'M' )
+                    Masculino</label>
+
+                    <label class="radiobutton">
+                    @Html.RadioButtonFor(u => u.IPersona.Genero, 'F')
+                    Femenino</label>
+
+                    @Html.ValidationMessageFor(u => u.IPersona.Genero, null, new { @style="color: red;" })
                 </div>
             </div>
         </div>

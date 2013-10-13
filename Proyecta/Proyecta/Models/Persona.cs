@@ -37,5 +37,24 @@ namespace Proyecta.Models
     [MetadataType(typeof(IPersona))]
     public partial class Persona
     {
+        public Guid CreatePersona(Usuario us)
+        {
+
+            try
+            {
+                ModeloDataContext ct = new ModeloDataContext();
+                Guid id = Guid.NewGuid();
+                us.IPersona.Id = id;
+                us.Id_Persona = id;
+                ct.Personas.InsertOnSubmit(us.IPersona);
+                ct.SubmitChanges();
+                ct.Dispose();
+                return id;
+            }
+            catch (Exception e)
+            {
+                return Guid.Empty;
+            }
+        }
     }
 }

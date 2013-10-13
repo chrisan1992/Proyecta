@@ -10,10 +10,12 @@ namespace Proyecta.Controllers
     {
         //
         // GET: /Proyecto/
+        
 
-        public ActionResult Index()
+        public ActionResult Index(string id = "")
         {
-            return View();
+            Models.Proyecto p = new Models.Proyecto();
+            return View(p.GetProyecto(new Guid(id)));
         }
 
     }
