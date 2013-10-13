@@ -127,9 +127,9 @@
     </Compile>
     <Compile Include="Models\Institucion.cs" />
     <Compile Include="Models\Modelo.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyecto.cs" />
