@@ -15,8 +15,13 @@
                 <h2>Recursos:</h2>
                 <p>@Html.DisplayFor(model => model.Recursos)</p>
 
-                <a class='btn btn-default navbar-btn' href='#'>
+                <a class='btn btn-default navbar-btn' href='/Proyecto/Participar?idProyecto=@Model.Id'>
                     Participar en el proyecto
+                    <i class='icon-plus-sign'></i>
+                </a>
+
+                <a class='btn btn-default navbar-btn' href='/Proyecto/Participar?idProyecto=@Model.Id'>
+                    Patrocinar el proyecto
                     <i class='icon-plus-sign'></i>
                 </a>
             </div>
@@ -25,9 +30,14 @@
                     Proyecta.Models.Persona p = new Proyecta.Models.Persona();
                     String[] split = p.getNombrePersona(@Model.Id).Split(' ');//recupera el nombre
                     String nombre = p.getNombrePersona(@Model.Id);//recupera el nombre
+                    
                     <h2>Información de Contacto</h2><br />
                     <span style="font-size:medium;font-weight:bold;">Nombre: </span><span>@split[0]</span><br /><br />
                     <span style="font-size:medium;font-weight:bold;">Correo: </span><span>@split[1]</span>
+                  
+                    <h2>Participantes</h2><br /><!--8 participantes para que no se salga de la pagina-->
+                    <span>-</span><br />
+                    <span>-</span><br />                    
                     }
                  
             </div>

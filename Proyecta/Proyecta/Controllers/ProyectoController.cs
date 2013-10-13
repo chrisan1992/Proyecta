@@ -23,5 +23,18 @@ namespace Proyecta.Controllers
             return View();
         }
 
+        public ActionResult Participar(Guid idProyecto) {
+            ViewBag.idProyecto = idProyecto;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Participar(Proyecta.Models.Proyecto_Persona pp)
+        {
+            pp.IdPersona = new Guid(Session["idPersona"].ToString());
+            return View(pp);
+        }
+
     }
 }
