@@ -12,7 +12,24 @@
     </div>
 }
 
+@section js{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var nowTemp = new Date();
+            var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+            $('.datepicker').datepicker({
+                onRender: function (date) {
+                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                },
+                format: "dd/mm/yyyy"
+            });
+        });
+    </script>
+}
+
 @section content{
+
     @using (Html.BeginForm("CrearProyecto", "Proyecto", FormMethod.Post, new { enctype = "multipart/form-data" })) {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -68,12 +85,12 @@
             <div class='row'>
                 <div class='col-md-6'>
                     @Html.LabelFor(u => u.FechaInicio, null, new { @class = "control-label" })
-                    @Html.TextBoxFor(u => u.FechaInicio, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.FechaInicio, new { @class = "form-control datepicker" })
                     @Html.ValidationMessageFor(u => u.FechaInicio, null, new { @style="color: red;" })
                 </div>
                 <div class='col-md-6'>
                     @Html.LabelFor(u => u.FechaFinal, null, new { @class = "control-label" })
-                    @Html.TextBoxFor(u => u.FechaFinal, new { @class = "form-control" })
+                    @Html.TextBoxFor(u => u.FechaFinal, new { @class = "form-control datepicker" })
                     @Html.ValidationMessageFor(u => u.FechaFinal, null, new { @style="color: red;" })
                 </div>
             </div>

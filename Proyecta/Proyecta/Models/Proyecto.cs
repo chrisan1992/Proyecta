@@ -70,6 +70,25 @@ namespace Proyecta.Models
             }
         }
 
+        public static List<Proyecto> Get3ProyectosByCategoria(string cat)
+        {
+            try
+            {
+                ModeloDataContext ct = new ModeloDataContext();
+                List<Proyecto> p = (from a in ct.Proyectos where a.Categoria == cat select a).ToList();
+                if (p.Count() > 3)
+                {
+                    p = p.GetRange(0, 3);
+                }
+                ct.Dispose();
+                return p;
+            }
+            catch (Exception e)
+            {
+                return new List<Proyecto>();
+            }
+        }
+
         public Proyecto GetProyecto(Guid idProyecto) {
             ModeloDataContext ct = new ModeloDataContext();
             Proyecto consulta = (from a in ct.Proyectos where a.Id == idProyecto select a).FirstOrDefault();
