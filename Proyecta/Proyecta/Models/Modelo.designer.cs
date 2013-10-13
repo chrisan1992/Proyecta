@@ -1194,6 +1194,8 @@ namespace Proyecta.Models
 		
 		private string _Categoria;
 		
+		private string _urlImagen;
+		
 		private EntitySet<Proyecto_Persona> _Proyecto_Personas;
 		
 		private EntitySet<Retroaliimentacion_Proyecto> _Retroaliimentacion_Proyectos;
@@ -1230,6 +1232,8 @@ namespace Proyecta.Models
     partial void OnEstadoChanged();
     partial void OnCategoriaChanging(string value);
     partial void OnCategoriaChanged();
+    partial void OnurlImagenChanging(string value);
+    partial void OnurlImagenChanged();
     #endregion
 		
 		public Proyecto()
@@ -1515,6 +1519,26 @@ namespace Proyecta.Models
 					this._Categoria = value;
 					this.SendPropertyChanged("Categoria");
 					this.OnCategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlImagen", DbType="VarChar(256)")]
+		public string urlImagen
+		{
+			get
+			{
+				return this._urlImagen;
+			}
+			set
+			{
+				if ((this._urlImagen != value))
+				{
+					this.OnurlImagenChanging(value);
+					this.SendPropertyChanging();
+					this._urlImagen = value;
+					this.SendPropertyChanged("urlImagen");
+					this.OnurlImagenChanged();
 				}
 			}
 		}
