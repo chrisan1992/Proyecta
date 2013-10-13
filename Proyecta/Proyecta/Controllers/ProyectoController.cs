@@ -44,6 +44,8 @@ namespace Proyecta.Controllers
             p.Id = Guid.NewGuid();
             p.FechaFinal = DateTime.Now;
             p.FechaInicio = DateTime.Now;
+            p.Cedula_Proponiente = "000000000";
+            p.Estado = 'N';
             HttpPostedFileBase image = Request.Files["imagen"];
             p.urlImagen = saveImage(image, p);
             
@@ -77,7 +79,7 @@ namespace Proyecta.Controllers
                         Directory.CreateDirectory(Server.MapPath("~/assets/images/Proyectos/" + client.Nombre.ToString()));
                         var imageURL = Path.Combine(Server.MapPath("~/assets/images/Proyectos/" + client.Nombre.ToString()), imageName);
                         image.SaveAs(imageURL);
-                        r = "/Images/" + client.Id.ToString() + "/" + imageName;
+                        r = "assets/images/Proyectos/" + client.Id.ToString() + "/" + imageName;
                     }
                     else
                     {
@@ -94,7 +96,7 @@ namespace Proyecta.Controllers
             {
                 if (image.ContentLength <= 0) // No image
                 {
-                    r = "/Images/logo-default.jpg";
+                    r = "assets/images/logo.png";
                 }
                 else // Bigger than max size
                 {
