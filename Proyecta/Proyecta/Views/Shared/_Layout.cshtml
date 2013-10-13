@@ -20,6 +20,29 @@
         <title>Proyecta - Costa Rica</title>
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function () {
+                // init the FB JS SDK
+                FB.init({
+                    appId: '159422320931123',                        // App ID from the app dashboard
+                    channelUrl: '//proyecta.azurewebsites.net/channel.html', // Channel file for x-domain comms
+                    status: true,                                 // Check Facebook Login status
+                    xfbml: true                                  // Look for social plugins on the page
+                });
+
+                // Additional initialization code such as adding Event Listeners goes here
+            };
+
+            // Load the SDK asynchronously
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_LA/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     <!-- Login Modal -->
         <div aria-hidden='true' aria-labelledby='loginModalLabel' class='modal fade' id='loginModal' role='dialog' tabindex='-1'>
           <div class='modal-dialog'>
@@ -130,7 +153,7 @@
                             @Html.ActionLink("Proyectos", "BuscarProyecto", "Proyecto")
                         </li>
                         <li>
-                            <a href='loop.html'>Blog</a>
+                            @Html.ActionLink("Metas", "Index", "Metas")
                         </li>
                         <li>
                             <a data-toggle='modal' href='#contactModal'>Contact Us</a>
