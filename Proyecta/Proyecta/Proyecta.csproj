@@ -264,6 +264,7 @@
     <Content Include="Views\Usuario\Exito.cshtml" />
     <Content Include="Views\Proyecto\BuscarProyecto.cshtml" />
     <Content Include="Views\Proyecto\CrearProyecto.cshtml" />
+    <Content Include="Views\Proyecto\Exito.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
