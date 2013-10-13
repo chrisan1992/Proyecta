@@ -70,6 +70,15 @@
       <Column Name="urlImagen" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
       <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
       <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos" ThisKey="Id" OtherKey="Id_Proyecto" Type="Retroaliimentacion_Proyecto" />
+      <Association Name="Proyecto_Proyecto_Imagene" Member="Proyecto_Imagenes" ThisKey="Id" OtherKey="Id_Proyecto" Type="Proyecto_Imagene" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proyecto_Imagenes" Member="Proyecto_Imagenes">
+    <Type Name="Proyecto_Imagene">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Proyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="urlImagen" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="Proyecto_Proyecto_Imagene" Member="Proyecto" ThisKey="Id_Proyecto" OtherKey="Id" Type="Proyecto" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
