@@ -6368,7 +6368,7 @@ td.loupe.loupe-large {
   padding: 0px 20px;
 }
 .team-member .member-avatar img {
-  border-radius: 50%;
+  border-radius: 50% 0%;
   max-width: 100%;
   display: inline-block;
 }
