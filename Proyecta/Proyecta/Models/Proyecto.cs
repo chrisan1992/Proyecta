@@ -9,6 +9,9 @@ namespace Proyecta.Models
 
     public class IProyecto
     {
+        [Display(Name = "Nombre del proyecto")]
+        [Required(ErrorMessage = "obligatorio")]
+        public string Nombre { get; set; }
 
         [Display(Name = "Descripción del proyecto")]
         [Required(ErrorMessage = "obligatorio")]

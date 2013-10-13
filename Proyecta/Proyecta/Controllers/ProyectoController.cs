@@ -76,8 +76,8 @@ namespace Proyecta.Controllers
                     fileType = ((image.ContentType.ToString()).Split('/'))[0].ToString();
                     if (fileType.ToLower() == "image")
                     {
-                        Directory.CreateDirectory(Server.MapPath("~/assets/images/Proyectos/" + client.Nombre.ToString()));
-                        var imageURL = Path.Combine(Server.MapPath("~/assets/images/Proyectos/" + client.Nombre.ToString()), imageName);
+                        Directory.CreateDirectory(Server.MapPath("~/assets/images/Proyectos/" + client.Id.ToString()));
+                        var imageURL = Path.Combine(Server.MapPath("~/assets/images/Proyectos/" + client.Id.ToString()), imageName);
                         image.SaveAs(imageURL);
                         r = "assets/images/Proyectos/" + client.Id.ToString() + "/" + imageName;
                     }
