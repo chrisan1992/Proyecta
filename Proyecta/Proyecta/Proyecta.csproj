@@ -220,6 +220,7 @@
     <Content Include="assets\js\less.js" />
     <Content Include="assets\js\respond.min.js" />
     <Content Include="assets\js\uglify.js" />
+    <Content Include="channel.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
