@@ -31,6 +31,11 @@ namespace Proyecta.Controllers
             return View();
         }
 
+        public ActionResult CrearProyecto()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CrearProyecto(Models.Proyecto p)
