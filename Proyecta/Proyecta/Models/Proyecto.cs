@@ -30,6 +30,12 @@ namespace Proyecta.Models
         [StringLength(20, ErrorMessage = "El cantón no puede ser mayor a 20 caracteres")]
         public string Canton { get; set; }
 
+        [Display(Name = "Fecha de inicio")]
+        public DateTime FechaInicio { get; set; }
+
+        [Display(Name = "Fecha final")]
+        public DateTime FechaFinal { get; set; }
+
     }
 
     [MetadataType(typeof(IProyecto))]
@@ -65,6 +71,21 @@ namespace Proyecta.Models
             ModeloDataContext ct = new ModeloDataContext();
             Proyecto consulta = (from a in ct.Proyectos where a.Id == idProyecto select a).FirstOrDefault();
             return consulta;
+        }
+
+        public static bool createProyecto(Proyecto p){
+            try
+            {
+                ModeloDataContext ct = new ModeloDataContext();
+                ct.Proyectos.InsertOnSubmit(p);
+                ct.SubmitChanges();
+                ct.Dispose();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 

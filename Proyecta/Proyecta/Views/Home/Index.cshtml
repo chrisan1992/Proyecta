@@ -18,7 +18,7 @@
         <div class="col-md-3">
             <div class="post-side-bar">
                 <div class="widget widget-cats">
-                    <h4 class="widget-title">Proyectos
+                    <h4 class="widget-title">Categorías de Proyectos
                     </h4>
                     <ul>
                         <li>
@@ -67,7 +67,9 @@
                         <div class="team-member animated-when-visible delay-animation-one animated bounceInUp" data-animation-type="bounceInUp">
                             <div class="member-avatar">
                                 <a href="Proyecto/Index?id=@item.Id"><!--imagen redirecciona-->
-                                    <img alt="" src="@url"/>
+                                    <div style="height: 150px;">
+                                        <img alt="" src="@url" style="height: 100%;"/>
+                                    </div>
                                 </a>
                             </div>
                             <h3 style="min-height: 90px;">@item.Nombre</h3>
@@ -126,7 +128,7 @@
         <img alt='' src='~/assets/images/shadow-separator-wide-top.png'>
     </div>
 
-    <div class='iconed-features lift-on-hover style-1'>
+    <div class='iconed-features lift-on-hover style-1' style="margin-bottom: 0px;">
         <div class='row'>
             <div class='col-md-4'>
                 <div class='btn-show-on-parent-hover'>
@@ -136,7 +138,6 @@
                                 <i class='icon-eye-open'></i>
                             </div>
                             <h4>Busca proyectos</h4>
-                            <p>Clean and simple design is what people want nowadays.</p>
                         </div>
                     </a>
                 </div>
@@ -149,7 +150,6 @@
                                 <i class='icon-gear'></i>
                             </div>
                             <h4>Crea tu proyecto</h4>
-                            <p>Clean and simple design is what people want nowadays.</p>
                         </div>
                     </a>
                 </div>
@@ -161,8 +161,7 @@
                             <div class='feature-icon-w'>
                                 <i class='icon-info'></i>
                             </div>
-                            <h4>Guía para crear proyectos</h4>
-                            <p>Clean and simple design is what people want nowadays.</p>
+                            <h4>Información y guía para crear proyectos</h4>
                         </div>
                     </a>
                 </div>
