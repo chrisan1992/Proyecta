@@ -39,6 +39,10 @@ namespace Proyecta.Models
         {
             ModeloDataContext ct = new ModeloDataContext();
             List<Proyecto> lista = (from a in ct.Proyectos select a).ToList();
+            if (lista.Count() > 3)
+            {
+                lista = lista.GetRange(0, 3);
+            }
             ct.Dispose();
             return lista;
         }
