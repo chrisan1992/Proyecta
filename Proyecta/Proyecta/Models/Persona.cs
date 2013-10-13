@@ -56,5 +56,14 @@ namespace Proyecta.Models
                 return Guid.Empty;
             }
         }
+
+        public String getNombrePersona(Guid idProyecto) {
+            ModeloDataContext ct = new ModeloDataContext();
+            Proyecto pr = (from a in ct.Proyectos where a.Id == idProyecto select a).FirstOrDefault();
+            String cedula = pr.Cedula_Proponiente;
+            Persona p = (from a in ct.Personas where a.Cedula==cedula select a).FirstOrDefault();
+            Usuario u = (from a in ct.Usuarios where a.Id_Persona == p.Id select a).FirstOrDefault();
+            return p.Apellido1+", "+p.Nombre+" "+u.Correo;
+        }
     }
 }
