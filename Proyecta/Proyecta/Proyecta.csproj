@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Institucion.cs" />
     <Compile Include="Models\Modelo.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +133,9 @@
     </Compile>
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyecto.cs" />
+    <Compile Include="Models\Proyecto_Imagenes.cs" />
+    <Compile Include="Models\Proyecto_Personas.cs" />
+    <Compile Include="Models\Retroaliimentacion_Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -257,6 +261,7 @@
     <Content Include="Views\Usuario\EscogerTipo.cshtml" />
     <Content Include="Views\Usuario\Exito.cshtml" />
     <Content Include="Views\Proyecto\BuscarProyecto.cshtml" />
+    <Content Include="Views\Proyecto\Participar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -34,14 +34,6 @@
       <Association Name="Persona_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdPersona" Type="Proyecto_Persona" />
     </Type>
   </Table>
-  <Table Name="dbo.Proyecto_Personas" Member="Proyecto_Personas">
-    <Type Name="Proyecto_Persona">
-      <Column Name="IdPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdProyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Persona_Proyecto_Persona" Member="Persona" ThisKey="IdPersona" OtherKey="Id" Type="Persona" IsForeignKey="true" />
-      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto" ThisKey="IdProyecto" OtherKey="Id" Type="Proyecto" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos">
     <Type Name="Retroaliimentacion_Proyecto">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -68,8 +60,27 @@
       <Column Name="Estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="Categoria" Type="System.String" DbType="VarChar(99)" CanBeNull="true" />
       <Column Name="urlImagen" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
-      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
       <Association Name="Proyecto_Retroaliimentacion_Proyecto" Member="Retroaliimentacion_Proyectos" ThisKey="Id" OtherKey="Id_Proyecto" Type="Retroaliimentacion_Proyecto" />
+      <Association Name="Proyecto_Proyecto_Imagene" Member="Proyecto_Imagenes" ThisKey="Id" OtherKey="Id_Proyecto" Type="Proyecto_Imagene" />
+      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto_Personas" ThisKey="Id" OtherKey="IdProyecto" Type="Proyecto_Persona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proyecto_Imagenes" Member="Proyecto_Imagenes">
+    <Type Name="Proyecto_Imagene">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Proyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="urlImagen" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="Proyecto_Proyecto_Imagene" Member="Proyecto" ThisKey="Id_Proyecto" OtherKey="Id" Type="Proyecto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proyecto_Personas" Member="Proyecto_Personas">
+    <Type Name="Proyecto_Persona">
+      <Column Name="IdPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdProyecto" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Recursos" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Motivo" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+      <Association Name="Persona_Proyecto_Persona" Member="Persona" ThisKey="IdPersona" OtherKey="Id" Type="Persona" IsForeignKey="true" />
+      <Association Name="Proyecto_Proyecto_Persona" Member="Proyecto" ThisKey="IdProyecto" OtherKey="Id" Type="Proyecto" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
