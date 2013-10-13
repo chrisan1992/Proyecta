@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Institucion.cs" />
     <Compile Include="Models\Modelo.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +133,8 @@
     </Compile>
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyecto.cs" />
+    <Compile Include="Models\Proyecto_Imagenes.cs" />
+    <Compile Include="Models\Retroaliimentacion_Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

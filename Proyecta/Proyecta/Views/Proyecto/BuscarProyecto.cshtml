@@ -17,6 +17,9 @@
         List<Proyecta.Models.Proyecto> ASocial = Proyecta.Models.Proyecto.GetProyectoByCategoria("Bienestar del adulto mayor");
         List<Proyecta.Models.Proyecto> cIndigena = Proyecta.Models.Proyecto.GetProyectoByCategoria("Comunidades Indígenas");
         List<Proyecta.Models.Proyecto> sMental = Proyecta.Models.Proyecto.GetProyectoByCategoria("Salud mental y emocional");
+        List<Proyecta.Models.Proyecto> sAmbiental = Proyecta.Models.Proyecto.GetProyectoByCategoria("Salud ambiental");
+        List<Proyecta.Models.Proyecto> sSexual = Proyecta.Models.Proyecto.GetProyectoByCategoria("Salud sexual y reproductiva");
+        List<Proyecta.Models.Proyecto> sMaterna = Proyecta.Models.Proyecto.GetProyectoByCategoria("Salud materna infantil");
     }
     <div class="container">
 
@@ -25,7 +28,7 @@
             <h3 class="header-lined" style="margin-bottom: 10px;">Participación y organización comunitaria</h3>
         </div>
 
-          <div class="row bottom-margin">
+          <div class="row ">
 
             @foreach (var item in pSocial)
             {
@@ -34,9 +37,15 @@
                 {
                     descripcion = descripcion.Substring(0, 199) + " ...";
                 }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
                 <div class="col-md-4">
                   <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
-                    <img alt="" src="http://placehold.it/800x600">
+                    <img alt="" src="@url">
                     <h3>
                       <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
                     </h3>
@@ -70,7 +79,7 @@
             <h3 class="header-lined" style="margin-bottom: 10px;">Bienestar del adulto mayor</h3>
         </div>
 
-          <div class="row bottom-margin">
+          <div class="row ">
 
             @foreach (var item in ASocial)
             {
@@ -79,9 +88,15 @@
                 {
                     descripcion = descripcion.Substring(0, 199) + " ...";
                 }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
                 <div class="col-md-4">
                   <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
-                    <img alt="" src="http://placehold.it/800x600">
+                    <img alt="" src="@url">
                     <h3>
                       <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
                     </h3>
@@ -115,7 +130,7 @@
             <h3 class="header-lined" style="margin-bottom: 10px;">Comunidades Indígenas</h3>
         </div>
 
-          <div class="row bottom-margin">
+          <div class="row ">
 
             @foreach (var item in cIndigena)
             {
@@ -124,9 +139,15 @@
                 {
                     descripcion = descripcion.Substring(0, 199) + " ...";
                 }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
                 <div class="col-md-4">
                   <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
-                    <img alt="" src="http://placehold.it/800x600">
+                    <img alt="" src="@url">
                     <h3>
                       <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
                     </h3>
@@ -160,7 +181,7 @@
             <h3 class="header-lined" style="margin-bottom: 10px;">Salud mental y emocional</h3>
         </div>
 
-          <div class="row bottom-margin">
+          <div class="row ">
 
             @foreach (var item in sMental)
             {
@@ -169,9 +190,168 @@
                 {
                     descripcion = descripcion.Substring(0, 199) + " ...";
                 }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
                 <div class="col-md-4">
                   <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
-                    <img alt="" src="http://placehold.it/800x600">
+                    <img alt="" src="@url">
+                    <h3>
+                      <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
+                    </h3>
+                    <div class="blog-teaser-meta">
+                      <span class="meta-item">
+                        <i class="icon-time"></i>
+                        @item.FechaCreacion
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-comments"></i>
+                          24
+                        </a>
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-star"></i>
+                          @item.PromedioEvaluacion
+                        </a>
+                      </span>
+                    </div>
+                    <p>@descripcion</p>
+                    <a class="continue-reading-link" href="~/Proyecto/Index?id=@item.Id">Leer más</a>
+                  </div>
+                </div>
+            }
+        </div>
+
+        <!-- Salud ambiental -->
+        <div class="row">
+            <h3 class="header-lined" style="margin-bottom: 10px;">Salud ambiental</h3>
+        </div>
+
+          <div class="row ">
+
+            @foreach (var item in sAmbiental)
+            {
+                string descripcion = item.Propuesta;
+                if (descripcion.Length > 200)
+                {
+                    descripcion = descripcion.Substring(0, 199) + " ...";
+                }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
+                <div class="col-md-4">
+                  <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
+                    <img alt="" src="@url">
+                    <h3>
+                      <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
+                    </h3>
+                    <div class="blog-teaser-meta">
+                      <span class="meta-item">
+                        <i class="icon-time"></i>
+                        @item.FechaCreacion
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-comments"></i>
+                          24
+                        </a>
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-star"></i>
+                          @item.PromedioEvaluacion
+                        </a>
+                      </span>
+                    </div>
+                    <p>@descripcion</p>
+                    <a class="continue-reading-link" href="~/Proyecto/Index?id=@item.Id">Leer más</a>
+                  </div>
+                </div>
+            }
+        </div>
+
+        <!-- Salud sexual y reproductiva -->
+        <div class="row">
+            <h3 class="header-lined" style="margin-bottom: 10px;">Salud sexual y reproductiva</h3>
+        </div>
+
+          <div class="row ">
+
+            @foreach (var item in sSexual)
+            {
+                string descripcion = item.Propuesta;
+                if (descripcion.Length > 200)
+                {
+                    descripcion = descripcion.Substring(0, 199) + " ...";
+                }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
+                <div class="col-md-4">
+                  <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
+                    <img alt="" src="@url">
+                    <h3>
+                      <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
+                    </h3>
+                    <div class="blog-teaser-meta">
+                      <span class="meta-item">
+                        <i class="icon-time"></i>
+                        @item.FechaCreacion
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-comments"></i>
+                          24
+                        </a>
+                      </span>
+                      <span class="meta-item">
+                        <a href="#">
+                          <i class="icon-star"></i>
+                          @item.PromedioEvaluacion
+                        </a>
+                      </span>
+                    </div>
+                    <p>@descripcion</p>
+                    <a class="continue-reading-link" href="~/Proyecto/Index?id=@item.Id">Leer más</a>
+                  </div>
+                </div>
+            }
+        </div>
+
+         <!-- Salud materna infantil -->
+        <div class="row">
+            <h3 class="header-lined" style="margin-bottom: 10px;">Salud materna infantil</h3>
+        </div>
+
+          <div class="row ">
+
+            @foreach (var item in sMaterna)
+            {
+                string descripcion = item.Propuesta;
+                if (descripcion.Length > 200)
+                {
+                    descripcion = descripcion.Substring(0, 199) + " ...";
+                }
+                string url = "";
+                try
+                {
+                    url = (item.urlImagen).Replace("~", "");
+                }
+                catch (Exception e) { }
+                <div class="col-md-4">
+                  <div class="blog-teaser animated-when-visible animated flipInX" data-animation-type="flipInX">
+                    <img alt="" src="@url">
                     <h3>
                       <a href="~/Proyecto/Index?id=@item.Id">@item.Nombre</a>
                     </h3>

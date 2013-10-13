@@ -66,11 +66,24 @@
         <classShapeMoniker Id="69f50e88-7f82-4163-a84f-b6c926cbcb96" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.625 : 9.41429768880208); (8.125 : 9.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.625 : 9.41429768880208); (8.125 : 9.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ModeloDataContext/Proyecto/Proyecto_Retroaliimentacion_Proyecto" />
       <nodes>
         <classShapeMoniker Id="37d60f1c-652e-4343-8df6-26e89affa66f" />
         <classShapeMoniker Id="4a9605b5-ba08-4c1a-9441-1dccdac1cae7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1a2b0e27-16bb-4006-94f6-2b7694cf2356" absoluteBounds="3, 8.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ModeloDataContext/Proyecto_Imagene" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2bcda81e-988e-4445-8ba0-c2022afc3f53" absoluteBounds="3.015, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 9.44314697265625); (5 : 9.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ModeloDataContext/Proyecto/Proyecto_Proyecto_Imagene" />
+      <nodes>
+        <classShapeMoniker Id="37d60f1c-652e-4343-8df6-26e89affa66f" />
+        <classShapeMoniker Id="1a2b0e27-16bb-4006-94f6-2b7694cf2356" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
