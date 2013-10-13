@@ -26,6 +26,7 @@ namespace Proyecta.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         public ActionResult Exito()
         {
             return View();
@@ -33,11 +34,16 @@ namespace Proyecta.Controllers
 
         public ActionResult CrearProyecto()
         {
+=======
+        public ActionResult Participar(Guid idProyecto) {
+            ViewBag.idProyecto = idProyecto;
+>>>>>>> origin/Christopher
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public ActionResult CrearProyecto(Models.Proyecto p)
         {
             p.FechaCreacion = DateTime.Now;
@@ -104,6 +110,12 @@ namespace Proyecta.Controllers
                 }
             }
             return r;
+=======
+        public ActionResult Participar(Proyecta.Models.Proyecto_Persona pp)
+        {
+            pp.IdPersona = new Guid(Session["idPersona"].ToString());
+            return View(pp);
+>>>>>>> origin/Christopher
         }
 
     }

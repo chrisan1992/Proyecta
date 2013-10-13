@@ -134,6 +134,7 @@
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\Proyecto_Imagenes.cs" />
+    <Compile Include="Models\Proyecto_Personas.cs" />
     <Compile Include="Models\Retroaliimentacion_Proyecto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,6 +268,7 @@
     <Content Include="Views\Proyecto\BuscarProyecto.cshtml" />
     <Content Include="Views\Proyecto\CrearProyecto.cshtml" />
     <Content Include="Views\Proyecto\Exito.cshtml" />
+    <Content Include="Views\Proyecto\Participar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
