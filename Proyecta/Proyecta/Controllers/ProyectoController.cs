@@ -42,8 +42,8 @@ namespace Proyecta.Controllers
         {
             p.FechaCreacion = DateTime.Now;
             p.Id = Guid.NewGuid();
-            p.FechaFinal = DateTime.Now;
-            p.FechaInicio = DateTime.Now;
+            //p.FechaFinal = DateTime.Now;
+            //p.FechaInicio = DateTime.Now;
             p.Cedula_Proponiente = "000000000";
             p.Estado = 'N';
             HttpPostedFileBase image = Request.Files["imagen"];

@@ -145,6 +145,7 @@
     <Content Include="assets\apple-touch-icon.png" />
     <Content Include="assets\css\animate.min.css" />
     <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\datepicker.css" />
     <Content Include="assets\css\theme.css" />
     <Content Include="assets\favicon.ico" />
     <Content Include="assets\images\Alto Almirante.jpg" />
@@ -196,6 +197,7 @@
     <Content Include="assets\images\shadow-separator-wide-bottom.png" />
     <Content Include="assets\images\shadow-separator-wide-top.png" />
     <Content Include="assets\js\application.js" />
+    <Content Include="assets\js\bootstrap-datepicker.js" />
     <Content Include="assets\js\bootstrap\affix.js" />
     <Content Include="assets\js\bootstrap\alert.js" />
     <Content Include="assets\js\bootstrap\button.js" />
